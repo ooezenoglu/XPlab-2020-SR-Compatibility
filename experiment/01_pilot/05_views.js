@@ -26,7 +26,7 @@ const intro = magpieViews.view_generator("intro", {
   text: `Thank you for joining this great experiment.
             <br />
 			<br />
-			Before you can start the experiment, please state whether you are left-handed or right handed. 
+			Before you can start the experiment, please state whether you are left-handed or right handed.
 			<br />
             <br />
             Click on the 'Continue'-Button below to state your answer.`,
@@ -38,7 +38,19 @@ const instructions = magpieViews.view_generator("instructions", {
   trials: 1,
   name: 'instructions',
   title: 'General Instructions',
-  text: `Bla`,
+  text: `In the following experiment you will see either a small or a big square.
+         The left square on the picture which is labeled with the letter 'A' is
+         the small square and the right sqaure on the picture which is labeled
+         with 'B' is the big square.
+         <br />
+         <br />
+         If you see a <strong>small</strong> sqaure, please use the index finger of your
+         <strong>left</strong> hand
+         to press the <strong>'tabulator'</strong> key on the left side of your keyboard.
+         <br />
+         If you see a <strong>big</strong> square, please use the index finger of your
+         <strong>right</strong> hand
+         to press the <strong>'backspace'</strong> key on the right side of you keyboard.`,
   buttonText: 'go to trials'
 });
 

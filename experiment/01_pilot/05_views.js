@@ -23,15 +23,14 @@ const intro = magpieViews.view_generator("intro", {
   trials: 1,
   name: 'intro',
   // If you use JavaScripts Template String `I am a Template String`, you can use HTML <></> and javascript ${} inside
-  text: `This is a sample introduction view.
+  text: `Thank you for joining this great experiment.
             <br />
+			<br />
+			Before you can start the experiment, please state whether you are left-handed or right handed. 
+			<br />
             <br />
-            The introduction view welcomes the participant and gives general information
-            about the experiment. You are in the <strong>${coin}</strong> group.
-            <br />
-            <br />
-            This is a minimal experiment with one forced choice view. It can serve as a starting point for programming your own experiment.`,
-  buttonText: 'begin the experiment'
+            Click on the 'Continue'-Button below to state your answer.`,
+  buttonText: 'Continue'
 });
 
 // For most tasks, you need instructions views
@@ -97,6 +96,15 @@ const thanks = magpieViews.view_generator("thanks", {
 * All about the properties of trial views
 * https://magpie-ea.github.io/magpie-docs/01_designing_experiments/01_template_views/#trial-views
 */
+
+const forced_choice_left_right = magpieViews.view_generator("forced_choice", {
+  // This will use all trials specified in `data`, you can user a smaller value (for testing), but not a larger value
+  trials: 1,
+  // name should be identical to the variable name
+  name: 'forced_choice_left_right',
+  data: left_right.forced_choice,
+});
+
 
 
 // Here, we initialize a normal forced_choice view

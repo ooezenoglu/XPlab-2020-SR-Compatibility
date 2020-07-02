@@ -1,6 +1,20 @@
 // In this file you can specify the trial data for your experiment
 
 
+
+
+const left_right = {
+	forced_choice: [
+		{
+			question: "Are you left-handed or right-handed?",
+			picture: "images/hands_unsplashed.png",
+			option1: 'left-handed',
+			option2: 'right-handed',
+			correct: 'right-handed'
+		}
+	]
+}
+
 const trial_info = {
     forced_choice: [
         {

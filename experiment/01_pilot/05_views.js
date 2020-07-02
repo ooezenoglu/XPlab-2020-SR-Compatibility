@@ -34,9 +34,9 @@ const intro = magpieViews.view_generator("intro", {
 });
 
 // For most tasks, you need instructions views
-const instructions = magpieViews.view_generator("instructions", {
+const instructions_practice = magpieViews.view_generator("instructions", {
   trials: 1,
-  name: 'instructions',
+  name: 'instructions_practice',
   title: 'General Instructions',
   text: `In the following experiment you will see either a small or a big square.
          The left square on the picture which is labeled with the letter 'A' is
@@ -117,20 +117,14 @@ const forced_choice_left_right = magpieViews.view_generator("forced_choice", {
   data: left_right.forced_choice,
 });
 
-
-
-// Here, we initialize a normal forced_choice view
-const forced_choice_2A = magpieViews.view_generator("forced_choice", {
-  // This will use all trials specified in `data`, you can user a smaller value (for testing), but not a larger value
-  trials: trial_info.forced_choice.length,
-  // name should be identical to the variable name
-  name: 'forced_choice_2A',
-  data: trial_info.forced_choice,
-  // you can add custom functions at different stages through a view's life cycle
-  // hook: {
-  //     after_response_enabled: check_response
-  // }
+const practice_compatible = magpieViews.view_generator("key_press", {
+  trials: 10,
+  name: 'practice_compatible',
+  fix_duration: 1000,
+  pause: 1500,
+  data: _.shuffle(practice_trials_compatible.key_press)
 });
+
 
 // There are many more templates available:
 // forced_choice, slider_rating, dropdown_choice, testbox_input, rating_scale, image_selection, sentence_choice,

@@ -26,33 +26,127 @@ const intro = magpieViews.view_generator("intro", {
   text: `Thank you for joining this great experiment.
             <br />
 			<br />
-			Before you can start the experiment, please state whether you are left-handed or right handed.
+			Before you can start the experiment, please state whether you are
+      left-handed or right-handed.
 			<br />
-            <br />
-            Click on the 'Continue'-Button below to state your answer.`,
+      <br />
+      Click on the 'Continue'-Button below to state your answer.`,
   buttonText: 'Continue'
 });
 
 // For most tasks, you need instructions views
-const instructions_practice = magpieViews.view_generator("instructions", {
+const instructions_general = magpieViews.view_generator("instructions", {
   trials: 1,
-  name: 'instructions_practice',
+  name: 'instructions_general',
   title: 'General Instructions',
-  text: `In the following experiment you will see either a small or a big square.
-         The left square on the picture which is labeled with the letter 'A' is
-         the small square and the right sqaure on the picture which is labeled
-         with 'B' is the big square.
+  text: `Great!
          <br />
          <br />
-         If you see a <strong>small</strong> sqaure, please use the index finger of your
+         In the following experiment you will see either a small or a big square.
+         <br />
+         <br />
+         If you see a <strong>small</strong> square, please use the index finger of your
          <strong>left</strong> hand
-         to press the <strong>'tabulator'</strong> key on the left side of your keyboard.
+         to press the <strong>'q'</strong> key on the left side of your keyboard.
          <br />
          If you see a <strong>big</strong> square, please use the index finger of your
          <strong>right</strong> hand
-         to press the <strong>'backspace'</strong> key on the right side of you keyboard.`,
-  buttonText: 'go to trials'
+         to press the <strong>'p'</strong> key on the right side of you keyboard.`,
+  buttonText: 'go to further instructions'
 });
+
+const instructions_practice_compatible = magpieViews.view_generator("instructions", {
+  trials: 1,
+  name: 'instructions_practice_compatible',
+  title: 'Further Instructions',
+  text:  'General Instructions',
+  text: `Alright!
+         <br />
+         <br />
+         Now that you know the difference between the small and the big square,
+         we will head to the practice session.
+         <br />
+         If you click on the blue botton below, you will start to practice
+         stating wether the square you are seeing is either small or big.
+         <br />
+         <br />
+         Please be as quick and precise as possible!
+         <br />
+         <br />
+         Don't forget: <strong>'q'</strong> is for <strong>small</strong> and
+         <strong>'p'</strong> is for <strong>big</strong>!
+         <br />
+         <br />
+         Let's begin!`,
+  buttonText: 'go to practice trials'
+});
+
+const instructions_practice_incompatible = magpieViews.view_generator("instructions", {
+  trials: 1,
+  name: 'instructions_practice_incompatible',
+  title: 'Instructions for the second half of the experiment',
+  text: `You've done great so far!
+         <br />
+         <br />
+         In the second half of this experiment, things are changing a little bit.
+         <br />
+         Until now, you pressed the key 'q' if you saw a small square and the key
+         'P' if you saw a big square.
+         <br />
+         <br />
+         We will <strong>change</strong> this setting a little bit now.
+         <br />
+         <br />
+         In the following trials you will have to press the key 'q' if you see
+         a <strong>big</strong> square and the key 'p' if you see a
+         <strong>small</strong> square.
+         <br />
+         <br />
+         Because this change of the meaning of the keys is a bit confusing, we
+         will practice this new setting first!
+         `,
+  buttonText: 'go to practice trials'
+});
+
+const instructions_main_compatible = magpieViews.view_generator("instructions", {
+  trials: 1,
+  name: 'instructions_main_compatible',
+  title: 'Instructions for the Main Trials',
+  text: `After practicing, you're a sqaure-expert now!
+         <br />
+         <br />
+         If you're ready, press the button below and continue with the main
+         trials.`,
+  buttonText: 'go to main trials'
+});
+
+const instructions_main_incompatible = magpieViews.view_generator("instructions", {
+  trials: 1,
+  name: 'instructions_main_incompatible',
+  title: 'Instructions for the Main Trials',
+  text: `We're done with practicing and heading to the second phase of main trials.
+         <br />
+         <br />
+         Again: Please be as quick and precise as possible!`,
+  buttonText: 'go to main trials'
+});
+
+const instructions_break = magpieViews.view_generator("instructions", {
+  trials: 1,
+  name: 'instructions_break',
+  title: 'A little break',
+  text: `Great, the first half of the experiment is done.
+         <br />
+         Grab yourself a glass of water, take some deep breaths or do some
+         push-ups.
+         <br />
+         <br />
+         If you are ready, please continue with the instructions for the second
+         half of the experiment.`,
+  buttonText: 'Continue with the experiment'
+});
+
+
 
 
 // In the post test questionnaire you can ask your participants addtional questions
@@ -117,12 +211,49 @@ const forced_choice_left_right = magpieViews.view_generator("forced_choice", {
   data: left_right.forced_choice,
 });
 
+const instructions_example_picture = magpieViews.view_generator("key_press", {
+  trials: 1,
+  name: 'instructions_example_picture',
+  data: example_picture.key_press
+});
+
+// Practice function for the compatible trials
 const practice_compatible = magpieViews.view_generator("key_press", {
   trials: 10,
   name: 'practice_compatible',
   fix_duration: 1000,
   pause: 1500,
   data: _.shuffle(practice_trials_compatible.key_press)
+  //hook: {
+  //  after_response_enabled: check_response
+  //}
+});
+
+// Practice function for the incompatible trials
+const practice_incompatible = magpieViews.view_generator("key_press", {
+  trials: 10,
+  name: 'practice_incompatible',
+  fix_duration: 1000,
+  pause: 1500,
+  data: _.shuffle(practice_trials_incompatible.key_press)
+});
+
+// Main function for the compatible trials
+const main_compatible = magpieViews.view_generator("key_press", {
+  trials: 20,
+  name: 'main_compatible',
+  fix_duration: 1000,
+  pause: 1500,
+  data: _.shuffle(main_trials_compatible.key_press)
+});
+
+// Main function for the incompatible trials
+const main_incompatible = magpieViews.view_generator("key_press", {
+  trials: 20,
+  name: 'main_incompatible',
+  fix_duration: 1000,
+  pause: 1500,
+  data: _.shuffle(main_trials_incompatible.key_press)
 });
 
 

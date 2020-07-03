@@ -11,18 +11,18 @@ We created the stimuli by ourselves. They are available [here](https://github.co
 The study is a 2 (mapping: compatible, incompatible) x 2 (size: small, large) within-subjects design.
 
 In each trial, participants either see a small square (2 x 2 cm) or a large square (4 x 4 cm) at screen center. Their task is to judge whether the square is the smaller or the larger one (forced binary choice).
-In the *compatible* mapping condition, participants should respond to the small square by pressing the left "tabulator" key and should respond to the large square by pressing the right "backspace" key. 
+In the *compatible* mapping condition, participants should respond to the small square by pressing the left "tabulator" key, and should respond to the large square by pressing the right "backspace" key. 
 In the *incompatible* mapping condition, it is the other way around: Participants should press the left key if they see the large square and the right key if they see the small square.
 
 The experiment consists of six parts:
 
-I.	introduction & instructions
-II.	practice phase (first S-R mapping)
+I.	introduction & instructions <br />
+II.	practice phase (first S-R mapping) <br />
 III.	main test phase (first S-R mapping) <br />
 	----------optional pause---------- <br />
-IV.	practice phase (second S-R mapping)
-V.	main test phase (second S-R mapping)
-VI.	post-experiment questionnaire
+IV.	practice phase (second S-R mapping) <br />
+V.	main test phase (second S-R mapping) <br />
+VI.	post-experiment questionnaire <br />
 
 In the first practice phase (II), participants complete 10 trials with the first S-R mapping (2 stimuli x 5 repetitions). 
 In the second practice phase (IV), there are twenty trials to complete with the second S-R mapping (2 Stimuli x 10 repetitions). 

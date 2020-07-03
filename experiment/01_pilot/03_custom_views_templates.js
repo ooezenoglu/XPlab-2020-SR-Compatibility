@@ -54,15 +54,15 @@ custom_views.keypress_rotation_practice = function(config) {
                 if (keyPressed === key1 || keyPressed === key2) {
                     let correctness;
                     const RT = Date.now() - startingTime; // measure RT before anything else
-	
+
                     if (
                         config.data[CT].expected ===
                             config[keyPressed]
                     ) {
                         correctness = "correct";
-                        // show feedback
+                        // show blank screen
                         $(".magpie-view-stimulus").addClass("magpie-invisible");
-                        $('#feedback').text('Correct answer!');
+                        $('#feedback').text('');
 
                     } else {
                         correctness = "incorrect";
@@ -70,19 +70,19 @@ custom_views.keypress_rotation_practice = function(config) {
                         $(".magpie-view-stimulus").addClass("magpie-invisible");
                         $('#feedback').text('Incorrect answer!');
                     }
-					
+
 
 					// if reponse is too slow
 					if (
 						RT > 3500
 					) {
-					// show feedback 
+					// show feedback
 						$(".magpie-view-stimulus").addClass("magpie-invisible");
                         $('#feedback').text('Too slow!');
-						
+
 					} else {}
-					
-					
+
+
                     const trial_data = {
                         trial_type: config.trial_type,
                         trial_number: CT + 1,
@@ -90,7 +90,7 @@ custom_views.keypress_rotation_practice = function(config) {
                         correctness: correctness,
                         RT: RT
                     };
-					
+
 
                     for (let prop in config.data[CT]) {
                         if (config.data[CT].hasOwnProperty(prop)) {
@@ -201,9 +201,9 @@ custom_views.keypress_rotation_main = function(config) {
                             config[keyPressed]
                     ) {
                         correctness = "correct";
-                        // show feedback
+                        // show blank screen
                         $(".magpie-view-stimulus").addClass("magpie-invisible");
-                        $('#feedback').text('Correct answer!');
+                        $('#feedback').text('');
 
                     } else {
                         correctness = "incorrect";
@@ -217,13 +217,13 @@ custom_views.keypress_rotation_main = function(config) {
 					if (
 						RT > 3500
 					) {
-					// show feedback 
+					// show feedback
 						$(".magpie-view-stimulus").addClass("magpie-invisible");
                         $('#feedback').text('Too slow!');
-						
+
 					} else {}
 
-				
+
                     const trial_data = {
                         trial_type: config.trial_type,
                         trial_number: CT + 1,

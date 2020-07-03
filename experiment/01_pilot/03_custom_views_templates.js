@@ -54,7 +54,7 @@ custom_views.keypress_rotation_practice = function(config) {
                 if (keyPressed === key1 || keyPressed === key2) {
                     let correctness;
                     const RT = Date.now() - startingTime; // measure RT before anything else
-
+	
                     if (
                         config.data[CT].expected ===
                             config[keyPressed]
@@ -62,15 +62,27 @@ custom_views.keypress_rotation_practice = function(config) {
                         correctness = "correct";
                         // show feedback
                         $(".magpie-view-stimulus").addClass("magpie-invisible");
-                        $('#feedback').text('Correct!');
+                        $('#feedback').text('Correct answer!');
 
                     } else {
                         correctness = "incorrect";
                         // show feedback
                         $(".magpie-view-stimulus").addClass("magpie-invisible");
-                        $('#feedback').text('Incorrect!');
+                        $('#feedback').text('Incorrect answer!');
                     }
+					
 
+					// if reponse is too slow
+					if (
+						RT > 3500
+					) {
+					// show feedback 
+						$(".magpie-view-stimulus").addClass("magpie-invisible");
+                        $('#feedback').text('Too slow!');
+						
+					} else {}
+					
+					
                     const trial_data = {
                         trial_type: config.trial_type,
                         trial_number: CT + 1,
@@ -78,6 +90,7 @@ custom_views.keypress_rotation_practice = function(config) {
                         correctness: correctness,
                         RT: RT
                     };
+					
 
                     for (let prop in config.data[CT]) {
                         if (config.data[CT].hasOwnProperty(prop)) {
@@ -190,15 +203,27 @@ custom_views.keypress_rotation_main = function(config) {
                         correctness = "correct";
                         // show feedback
                         $(".magpie-view-stimulus").addClass("magpie-invisible");
-                        $('#feedback').text('Correct!');
+                        $('#feedback').text('Correct answer!');
 
                     } else {
                         correctness = "incorrect";
                         // show feedback
                         $(".magpie-view-stimulus").addClass("magpie-invisible");
-                        $('#feedback').text('Incorrect!');
+                        $('#feedback').text('Incorrect answer!');
                     }
 
+
+					// if reponse is too slow
+					if (
+						RT > 3500
+					) {
+					// show feedback 
+						$(".magpie-view-stimulus").addClass("magpie-invisible");
+                        $('#feedback').text('Too slow!');
+						
+					} else {}
+
+				
                     const trial_data = {
                         trial_type: config.trial_type,
                         trial_number: CT + 1,

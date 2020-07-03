@@ -24,13 +24,13 @@ const intro = magpieViews.view_generator("intro", {
   name: 'intro',
   // If you use JavaScripts Template String `I am a Template String`, you can use HTML <></> and javascript ${} inside
   text: `Thank you for joining this great experiment.
-            <br />
-			<br />
-			Before you can start the experiment, please state whether you are
-      left-handed or right-handed.
-			<br />
-      <br />
-      Click on the 'Continue'-Button below to state your answer.`,
+         <br />
+         <br />
+         Before you can start the experiment, please state whether you are
+         left-handed or right-handed.
+         <br />
+         <br />
+         Click on the 'Continue'-Button below to state your answer.`,
   buttonText: 'Continue'
 });
 
@@ -38,21 +38,27 @@ const intro = magpieViews.view_generator("intro", {
 const instructions_general = magpieViews.view_generator("instructions", {
   trials: 1,
   name: 'instructions_general',
-  title: 'General Instructions',
-  text: `Great!
+  title: 'Instructions',
+  // Apparently text size/font and alignment changes if sentences appear after the image?
+  text: `In the following experiment, you will either see a small or a big square on the center of your screen.
+         The picture below depicts both square types (In each trial, you will either see the square in panel A or in panel B).
+         Your task is to judge whether the square you see is the smaller or the larger one.
          <br />
          <br />
-         In the following experiment you will see either a small or a big square.
-         <br />
-         <br />
-         If you see a <strong>small</strong> square, please use the index finger of your
-         <strong>left</strong> hand
+         If you see the <strong>small</strong> square, please use the index finger of your <strong>left</strong> hand
          to press the <strong>'q'</strong> key on the left side of your keyboard.
          <br />
-         If you see a <strong>big</strong> square, please use the index finger of your
-         <strong>right</strong> hand
-         to press the <strong>'p'</strong> key on the right side of you keyboard.`,
-  buttonText: 'go to further instructions'
+         <br />
+         If you see the <strong>big</strong> square, please use the index finger of your <strong>right</strong> hand
+         to press the <strong>'p'</strong> key on the right side of you keyboard.
+         <br />
+         <br />
+         We will practice this first.
+         <br />
+         <br />
+         Please respond as fast and accurate as possible!
+         <p style="text-align:center;"><img src="images/instructions-image.jpg" alt="instructions" height="300" width="400"></p>`,
+  buttonText: 'go to practice trials'
 });
 
 const instructions_practice_compatible = magpieViews.view_generator("instructions", {
@@ -209,12 +215,6 @@ const forced_choice_left_right = magpieViews.view_generator("forced_choice", {
   // name should be identical to the variable name
   name: 'forced_choice_left_right',
   data: left_right.forced_choice,
-});
-
-const instructions_example_picture = magpieViews.view_generator("key_press", {
-  trials: 1,
-  name: 'instructions_example_picture',
-  data: example_picture.key_press
 });
 
 // Practice function for the compatible trials

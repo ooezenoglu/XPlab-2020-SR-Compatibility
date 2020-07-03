@@ -18,7 +18,6 @@ $("document").ready(function() {
             intro,
 			      forced_choice_left_right,
             instructions_general,
-            instructions_example_picture,
             instructions_practice_compatible,
             practice_compatible,
             instructions_main_compatible,

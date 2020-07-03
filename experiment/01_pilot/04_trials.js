@@ -21,91 +21,51 @@ const practice_trials_compatible = {
 		{
 		  question: "Is this a small or a big square?",
 	  	picture: "images/small-stimulus.png",
-	  	key1: 'q',
-	  	key2: 'p',
-	  	q: 'small',
-	  	p: 'big',
 	  	expected: 'small'
   	},
 		{
 			question: "Is this a small or a big square?",
 	  	picture: "images/large-stimulus.png",
-	  	key1: 'q',
-	  	key2: 'p',
-	  	q: 'small',
-	  	p: 'big',
 	  	expected: 'big'
 		},
 		{
 		  question: "Is this a small or a big square?",
 	  	picture: "images/small-stimulus.png",
-	  	key1: 'q',
-	  	key2: 'p',
-	  	q: 'small',
-	  	p: 'big',
 	  	expected: 'small'
   	},
 		{
 			question: "Is this a small or a big square?",
 	  	picture: "images/large-stimulus.png",
-	  	key1: 'q',
-	  	key2: 'p',
-	  	q: 'small',
-	  	p: 'big',
 	  	expected: 'big'
 		},
 		{
 		  question: "Is this a small or a big square?",
 	  	picture: "images/small-stimulus.png",
-	  	key1: 'q',
-	  	key2: 'p',
-	  	q: 'small',
-	  	p: 'big',
 	  	expected: 'small'
   	},
 		{
 			question: "Is this a small or a big square?",
 	  	picture: "images/large-stimulus.png",
-	  	key1: 'q',
-	  	key2: 'p',
-	  	q: 'small',
-	  	p: 'big',
 	  	expected: 'big'
 		},
 		{
 		  question: "Is this a small or a big square?",
 	  	picture: "images/small-stimulus.png",
-	  	key1: 'q',
-	  	key2: 'p',
-	  	q: 'small',
-	  	p: 'big',
 	  	expected: 'small'
   	},
 		{
 			question: "Is this a small or a big square?",
 	  	picture: "images/large-stimulus.png",
-	  	key1: 'q',
-	  	key2: 'p',
-	  	q: 'small',
-	  	p: 'big',
 	  	expected: 'big'
 		},
 		{
 		  question: "Is this a small or a big square?",
 	  	picture: "images/small-stimulus.png",
-	  	key1: 'q',
-	  	key2: 'p',
-	  	q: 'small',
-	  	p: 'big',
 	  	expected: 'small'
   	},
 		{
 			question: "Is this a small or a big square?",
 	  	picture: "images/large-stimulus.png",
-	  	key1: 'q',
-	  	key2: 'p',
-	  	q: 'small',
-	  	p: 'big',
 	  	expected: 'big'
 		}
 	]
@@ -116,91 +76,51 @@ const practice_trials_incompatible = {
 		{
 		  question: "Is this a small or a big square?",
 	  	picture: "images/small-stimulus.png",
-	  	key1: 'q',
-	  	key2: 'p',
-	  	q: 'big',
-	  	p: 'small',
 	  	expected: 'small'
   	},
 		{
 			question: "Is this a small or a big square?",
 	  	picture: "images/large-stimulus.png",
-	  	key1: 'q',
-	  	key2: 'p',
-	  	q: 'big',
-	  	p: 'small',
 	  	expected: 'big'
 		},
 		{
 		  question: "Is this a small or a big square?",
 	  	picture: "images/small-stimulus.png",
-	  	key1: 'q',
-	  	key2: 'p',
-	  	q: 'big',
-	  	p: 'small',
 	  	expected: 'small'
   	},
 		{
 			question: "Is this a small or a big square?",
 	  	picture: "images/large-stimulus.png",
-	  	key1: 'q',
-	  	key2: 'p',
-	  	q: 'big',
-	  	p: 'small',
 	  	expected: 'big'
 		},
 		{
 		  question: "Is this a small or a big square?",
 	  	picture: "images/small-stimulus.png",
-	  	key1: 'q',
-	  	key2: 'p',
-	  	q: 'big',
-	  	p: 'small',
 	  	expected: 'small'
   	},
 		{
 			question: "Is this a small or a big square?",
 	  	picture: "images/large-stimulus.png",
-	  	key1: 'q',
-	  	key2: 'p',
-	  	q: 'big',
-	  	p: 'small',
 	  	expected: 'big'
 		},
 		{
 		  question: "Is this a small or a big square?",
 	  	picture: "images/small-stimulus.png",
-	  	key1: 'q',
-	  	key2: 'p',
-	  	q: 'big',
-	  	p: 'small',
 	  	expected: 'small'
   	},
 		{
 			question: "Is this a small or a big square?",
 	  	picture: "images/large-stimulus.png",
-	  	key1: 'q',
-	  	key2: 'p',
-	  	q: 'big',
-	  	p: 'small',
 	  	expected: 'big'
 		},
 		{
 		  question: "Is this a small or a big square?",
 	  	picture: "images/small-stimulus.png",
-	  	key1: 'q',
-	  	key2: 'p',
-	  	q: 'big',
-	  	p: 'small',
 	  	expected: 'small'
   	},
 		{
 			question: "Is this a small or a big square?",
 	  	picture: "images/large-stimulus.png",
-	  	key1: 'q',
-	  	key2: 'p',
-	  	q: 'big',
-	  	p: 'small',
 	  	expected: 'big'
 		}
 	]
@@ -212,181 +132,101 @@ const main_trials_compatible = {
 		{
 		  question: "Is this a small or a big square?",
 	  	picture: "images/small-stimulus.png",
-	  	key1: 'q',
-	  	key2: 'p',
-	  	q: 'small',
-	  	p: 'big',
 	  	expected: 'small'
   	},
 		{
 			question: "Is this a small or a big square?",
 	  	picture: "images/large-stimulus.png",
-	  	key1: 'q',
-	  	key2: 'p',
-	  	q: 'small',
-	  	p: 'big',
 	  	expected: 'big'
 		},
 		{
 		  question: "Is this a small or a big square?",
 	  	picture: "images/small-stimulus.png",
-	  	key1: 'q',
-	  	key2: 'p',
-	  	q: 'small',
-	  	p: 'big',
 	  	expected: 'small'
   	},
 		{
 			question: "Is this a small or a big square?",
 	  	picture: "images/large-stimulus.png",
-	  	key1: 'q',
-	  	key2: 'p',
-	  	q: 'small',
-	  	p: 'big',
 	  	expected: 'big'
 		},
 		{
 		  question: "Is this a small or a big square?",
 	  	picture: "images/small-stimulus.png",
-	  	key1: 'q',
-	  	key2: 'p',
-	  	q: 'small',
-	  	p: 'big',
 	  	expected: 'small'
   	},
 		{
 			question: "Is this a small or a big square?",
 	  	picture: "images/large-stimulus.png",
-	  	key1: 'q',
-	  	key2: 'p',
-	  	q: 'small',
-	  	p: 'big',
 	  	expected: 'big'
 		},
 		{
 		  question: "Is this a small or a big square?",
 	  	picture: "images/small-stimulus.png",
-	  	key1: 'q',
-	  	key2: 'p',
-	  	q: 'small',
-	  	p: 'big',
 	  	expected: 'small'
   	},
 		{
 			question: "Is this a small or a big square?",
 	  	picture: "images/large-stimulus.png",
-	  	key1: 'q',
-	  	key2: 'p',
-	  	q: 'small',
-	  	p: 'big',
 	  	expected: 'big'
 		},
 		{
 		  question: "Is this a small or a big square?",
 	  	picture: "images/small-stimulus.png",
-	  	key1: 'q',
-	  	key2: 'p',
-	  	q: 'small',
-	  	p: 'big',
 	  	expected: 'small'
   	},
 		{
 			question: "Is this a small or a big square?",
 	  	picture: "images/large-stimulus.png",
-	  	key1: 'q',
-	  	key2: 'p',
-	  	q: 'small',
-	  	p: 'big',
 	  	expected: 'big'
 		},
 		{
 		  question: "Is this a small or a big square?",
 	  	picture: "images/small-stimulus.png",
-	  	key1: 'q',
-	  	key2: 'p',
-	  	q: 'small',
-	  	p: 'big',
 	  	expected: 'small'
   	},
 		{
 			question: "Is this a small or a big square?",
 	  	picture: "images/large-stimulus.png",
-	  	key1: 'q',
-	  	key2: 'p',
-	  	q: 'small',
-	  	p: 'big',
 	  	expected: 'big'
 		},
 		{
 		  question: "Is this a small or a big square?",
 	  	picture: "images/small-stimulus.png",
-	  	key1: 'q',
-	  	key2: 'p',
-	  	q: 'small',
-	  	p: 'big',
 	  	expected: 'small'
   	},
 		{
 			question: "Is this a small or a big square?",
 	  	picture: "images/large-stimulus.png",
-	  	key1: 'q',
-	  	key2: 'p',
-	  	q: 'small',
-	  	p: 'big',
 	  	expected: 'big'
 		},
 		{
 		  question: "Is this a small or a big square?",
 	  	picture: "images/small-stimulus.png",
-	  	key1: 'q',
-	  	key2: 'p',
-	  	q: 'small',
-	  	p: 'big',
 	  	expected: 'small'
   	},
 		{
 			question: "Is this a small or a big square?",
 	  	picture: "images/large-stimulus.png",
-	  	key1: 'q',
-	  	key2: 'p',
-	  	q: 'small',
-	  	p: 'big',
 	  	expected: 'big'
 		},
 		{
 		  question: "Is this a small or a big square?",
 	  	picture: "images/small-stimulus.png",
-	  	key1: 'q',
-	  	key2: 'p',
-	  	q: 'small',
-	  	p: 'big',
 	  	expected: 'small'
   	},
 		{
 			question: "Is this a small or a big square?",
 	  	picture: "images/large-stimulus.png",
-	  	key1: 'q',
-	  	key2: 'p',
-	  	q: 'small',
-	  	p: 'big',
 	  	expected: 'big'
 		},
 		{
 		  question: "Is this a small or a big square?",
 	  	picture: "images/small-stimulus.png",
-	  	key1: 'q',
-	  	key2: 'p',
-	  	q: 'small',
-	  	p: 'big',
 	  	expected: 'small'
   	},
 		{
 			question: "Is this a small or a big square?",
 	  	picture: "images/large-stimulus.png",
-	  	key1: 'q',
-	  	key2: 'p',
-	  	q: 'small',
-	  	p: 'big',
 	  	expected: 'big'
 		}
 	]
@@ -398,181 +238,101 @@ const main_trials_incompatible = {
 		{
 		  question: "Is this a small or a big square?",
 	  	picture: "images/small-stimulus.png",
-	  	key1: 'q',
-	  	key2: 'p',
-	  	q: 'big',
-	  	p: 'small',
 	  	expected: 'small'
   	},
 		{
 			question: "Is this a small or a big square?",
 	  	picture: "images/large-stimulus.png",
-	  	key1: 'q',
-	  	key2: 'p',
-	  	q: 'big',
-	  	p: 'small',
 	  	expected: 'big'
 		},
 		{
 		  question: "Is this a small or a big square?",
 	  	picture: "images/small-stimulus.png",
-	  	key1: 'q',
-	  	key2: 'p',
-	  	q: 'big',
-	  	p: 'small',
 	  	expected: 'small'
   	},
 		{
 			question: "Is this a small or a big square?",
 	  	picture: "images/large-stimulus.png",
-	  	key1: 'q',
-	  	key2: 'p',
-	  	q: 'big',
-	  	p: 'small',
 	  	expected: 'big'
 		},
 		{
 		  question: "Is this a small or a big square?",
 	  	picture: "images/small-stimulus.png",
-	  	key1: 'q',
-	  	key2: 'p',
-	  	q: 'big',
-	  	p: 'small',
 	  	expected: 'small'
   	},
 		{
 			question: "Is this a small or a big square?",
 	  	picture: "images/large-stimulus.png",
-	  	key1: 'q',
-	  	key2: 'p',
-	  	q: 'big',
-	  	p: 'small',
 	  	expected: 'big'
 		},
 		{
 		  question: "Is this a small or a big square?",
 	  	picture: "images/small-stimulus.png",
-	  	key1: 'q',
-	  	key2: 'p',
-	  	q: 'big',
-	  	p: 'small',
 	  	expected: 'small'
   	},
 		{
 			question: "Is this a small or a big square?",
 	  	picture: "images/large-stimulus.png",
-	  	key1: 'q',
-	  	key2: 'p',
-	  	q: 'big',
-	  	p: 'small',
 	  	expected: 'big'
 		},
 		{
 		  question: "Is this a small or a big square?",
 	  	picture: "images/small-stimulus.png",
-	  	key1: 'q',
-	  	key2: 'p',
-	  	q: 'big',
-	  	p: 'small',
 	  	expected: 'small'
   	},
 		{
 			question: "Is this a small or a big square?",
 	  	picture: "images/large-stimulus.png",
-	  	key1: 'q',
-	  	key2: 'p',
-	  	q: 'big',
-	  	p: 'small',
 	  	expected: 'big'
 		},
 		{
 		  question: "Is this a small or a big square?",
 	  	picture: "images/small-stimulus.png",
-	  	key1: 'q',
-	  	key2: 'p',
-	  	q: 'big',
-	  	p: 'small',
 	  	expected: 'small'
   	},
 		{
 			question: "Is this a small or a big square?",
 	  	picture: "images/large-stimulus.png",
-	  	key1: 'q',
-	  	key2: 'p',
-	  	q: 'big',
-	  	p: 'small',
 	  	expected: 'big'
 		},
 		{
 		  question: "Is this a small or a big square?",
 	  	picture: "images/small-stimulus.png",
-	  	key1: 'q',
-	  	key2: 'p',
-	  	q: 'big',
-	  	p: 'small',
 	  	expected: 'small'
   	},
 		{
 			question: "Is this a small or a big square?",
 	  	picture: "images/large-stimulus.png",
-	  	key1: 'q',
-	  	key2: 'p',
-	  	q: 'big',
-	  	p: 'small',
 	  	expected: 'big'
 		},
 		{
 		  question: "Is this a small or a big square?",
 	  	picture: "images/small-stimulus.png",
-	  	key1: 'q',
-	  	key2: 'p',
-	  	q: 'big',
-	  	p: 'small',
 	  	expected: 'small'
   	},
 		{
 			question: "Is this a small or a big square?",
 	  	picture: "images/large-stimulus.png",
-	  	key1: 'q',
-	  	key2: 'p',
-	  	q: 'big',
-	  	p: 'small',
 	  	expected: 'big'
 		},
 		{
 		  question: "Is this a small or a big square?",
 	  	picture: "images/small-stimulus.png",
-	  	key1: 'q',
-	  	key2: 'p',
-	  	q: 'big',
-	  	p: 'small',
 	  	expected: 'small'
   	},
 		{
 			question: "Is this a small or a big square?",
 	  	picture: "images/large-stimulus.png",
-	  	key1: 'q',
-	  	key2: 'p',
-	  	q: 'big',
-	  	p: 'small',
 	  	expected: 'big'
 		},
 		{
 		  question: "Is this a small or a big square?",
 	  	picture: "images/small-stimulus.png",
-	  	key1: 'q',
-	  	key2: 'p',
-	  	q: 'big',
-	  	p: 'small',
 	  	expected: 'small'
   	},
 		{
 			question: "Is this a small or a big square?",
 	  	picture: "images/large-stimulus.png",
-	  	key1: 'q',
-	  	key2: 'p',
-	  	q: 'big',
-	  	p: 'small',
 	  	expected: 'big'
 		}
 	]

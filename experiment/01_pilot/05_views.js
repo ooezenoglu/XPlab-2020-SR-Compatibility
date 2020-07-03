@@ -40,9 +40,12 @@ const instructions_general = magpieViews.view_generator("instructions", {
   name: 'instructions_general',
   title: 'Instructions',
   // Apparently text size/font and alignment changes if sentences appear after the image?
-  text: `In the following experiment, you will either see a small or a big square on the center of your screen.
-         The picture below depicts both square types (In each trial, you will either see the square in panel A or in panel B).
-         Your task is to judge whether the square you see is the smaller or the larger one.
+  text: `In the following experiment, you will see squares in one of two sizes in the center of you screen: small or big.
+         The picture below depicts both square types.
+		 <br />
+         <br />
+		 In each trial, you will either see the square in panel A or in panel B.
+		 Your task is to judge whether the square you see is the smaller or the bigger one.
          <br />
          <br />
          If you see the <strong>small</strong> square, please use the index finger of your <strong>left</strong> hand
@@ -58,7 +61,7 @@ const instructions_general = magpieViews.view_generator("instructions", {
          <br />
          Please respond as fast and accurate as possible!
          <p style="text-align:center;"><img src="images/instructions-image.jpg" alt="instructions" height="300" width="400"></p>`,
-  buttonText: 'go to practice trials'
+  buttonText: 'Continue'
 });
 
 const instructions_practice_compatible = magpieViews.view_generator("instructions", {
@@ -100,7 +103,7 @@ const instructions_practice_incompatible = magpieViews.view_generator("instructi
          'P' if you saw a big square.
          <br />
          <br />
-         We will <strong>change</strong> this setting a little bit now.
+         We will <strong>change</strong> this setting now.
          <br />
          <br />
          In the following trials you will have to press the key 'q' if you see
@@ -218,42 +221,59 @@ const forced_choice_left_right = magpieViews.view_generator("forced_choice", {
 });
 
 // Practice function for the compatible trials
-const practice_compatible = magpieViews.view_generator("key_press", {
+const practice_compatible = custom_views.keypress_rotation_practice({
   trials: 10,
   name: 'practice_compatible',
+  trial_type: 'practice',
   fix_duration: 1000,
   pause: 1500,
-  data: _.shuffle(practice_trials_compatible.key_press)
-  //hook: {
-  //  after_response_enabled: check_response
-  //}
+  data: _.shuffle(practice_trials_compatible.key_press),
+  key1: 'q',
+  key2: 'p',
+  q: 'small',
+  p: 'big',
 });
 
 // Practice function for the incompatible trials
-const practice_incompatible = magpieViews.view_generator("key_press", {
+const practice_incompatible = custom_views.keypress_rotation_practice({
   trials: 10,
   name: 'practice_incompatible',
+  trial_type: 'practice',
   fix_duration: 1000,
   pause: 1500,
-  data: _.shuffle(practice_trials_incompatible.key_press)
+  data: _.shuffle(practice_trials_incompatible.key_press),
+  key1: 'q',
+  key2: 'p',
+  q: 'big',
+  p: 'small',
 });
 
 // Main function for the compatible trials
-const main_compatible = magpieViews.view_generator("key_press", {
+const main_compatible = custom_views.keypress_rotation_main({
   trials: 20,
   name: 'main_compatible',
+  trial_type: 'main',
   fix_duration: 1000,
   pause: 1500,
-  data: _.shuffle(main_trials_compatible.key_press)
+  data: _.shuffle(main_trials_compatible.key_press),
+  key1: 'q',
+  key2: 'p',
+  q: 'small',
+  p: 'big',
 });
 
 // Main function for the incompatible trials
-const main_incompatible = magpieViews.view_generator("key_press", {
+const main_incompatible = custom_views.keypress_rotation_main({
   trials: 20,
   name: 'main_incompatible',
+  trial_type: 'main',
   fix_duration: 1000,
   pause: 1500,
-  data: _.shuffle(main_trials_incompatible.key_press)
+  data: _.shuffle(main_trials_incompatible.key_press),
+  key1: 'q',
+  key2: 'p',
+  q: 'big',
+  p: 'small',
 });
 
 

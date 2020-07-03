@@ -15,18 +15,24 @@ $("document").ready(function() {
     window.magpie_monitor = magpieInit({
         // You have to specify all views you want to use in this experiment and the order of them
         views_seq: [
-            intro,
-			      forced_choice_left_right,
+            intro,	
+			forced_choice_left_right,
             instructions_general,
+			
             instructions_practice_compatible,
             practice_compatible,
+			
             instructions_main_compatible,
             main_compatible,
+			
             instructions_break,
+			
             instructions_practice_incompatible,
             practice_incompatible,
+			
             instructions_main_incompatible,
             main_incompatible,
+			
             post_test,
             thanks,
         ],
@@ -46,6 +52,9 @@ $("document").ready(function() {
             in: [
                 // list the view-names of the views for which you want a progress bar
                 practice_compatible.name,
+				practice_incompatible.name,
+				main_compatible.name,
+				main_incompatible.name
             ],
              // Possible styles are "default", "separate" and "chunks"
             style: "separate",

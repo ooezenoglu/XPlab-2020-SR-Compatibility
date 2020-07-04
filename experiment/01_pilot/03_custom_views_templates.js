@@ -61,12 +61,13 @@ custom_views.keypress_rotation_practice = function(config) {
 					  clearTimeout(window.timeout[0]);
 					  window.timeout.shift();
 				
+
                     if (
                         config.data[CT].expected ===
                             config[keyPressed]
                     ) {
                         correctness = "correct";
-                        // show feedback
+                        // show blank screen
                         $(".magpie-view-stimulus").addClass("magpie-invisible");
                         $('#feedback').text('');
 
@@ -83,6 +84,7 @@ custom_views.keypress_rotation_practice = function(config) {
                         $('#feedback').text('Incorrect answer!');
                     }
 					
+
                     const trial_data = {
                         trial_type: config.trial_type,
                         trial_number: CT + 1,
@@ -90,7 +92,7 @@ custom_views.keypress_rotation_practice = function(config) {
                         correctness: correctness,
                         RT: RT
                     };
-					
+
 
                     for (let prop in config.data[CT]) {
                         if (config.data[CT].hasOwnProperty(prop)) {
@@ -207,7 +209,7 @@ custom_views.keypress_rotation_main = function(config) {
                             config[keyPressed]
                     ) {
                         correctness = "correct";
-                        // show feedback
+                        // show blank screen
                         $(".magpie-view-stimulus").addClass("magpie-invisible");
                         $('#feedback').text('');
 
@@ -224,6 +226,7 @@ custom_views.keypress_rotation_main = function(config) {
                     }
 
 				
+
                     const trial_data = {
                         trial_type: config.trial_type,
                         trial_number: CT + 1,

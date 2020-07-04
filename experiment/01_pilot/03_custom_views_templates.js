@@ -54,6 +54,13 @@ custom_views.keypress_rotation_practice = function(config) {
                 if (keyPressed === key1 || keyPressed === key2) {
                     let correctness;
                     const RT = Date.now() - startingTime; // measure RT before anything else
+					
+					// clear old timeouts and remove them from the timeout array
+					  clearTimeout(window.timeout[0]);
+					  window.timeout.shift();
+					  clearTimeout(window.timeout[0]);
+					  window.timeout.shift();
+				
 
                     if (
                         config.data[CT].expected ===
@@ -64,24 +71,19 @@ custom_views.keypress_rotation_practice = function(config) {
                         $(".magpie-view-stimulus").addClass("magpie-invisible");
                         $('#feedback').text('');
 
-                    } else {
+                    } 
+					
+					else if (RT > 3500) {
+					
+					}
+										
+					else {
                         correctness = "incorrect";
                         // show feedback
                         $(".magpie-view-stimulus").addClass("magpie-invisible");
                         $('#feedback').text('Incorrect answer!');
                     }
-
-
-					// if reponse is too slow
-					if (
-						RT > 3500
-					) {
-					// show feedback
-						$(".magpie-view-stimulus").addClass("magpie-invisible");
-                        $('#feedback').text('Too slow!');
-
-					} else {}
-
+					
 
                     const trial_data = {
                         trial_type: config.trial_type,
@@ -195,7 +197,13 @@ custom_views.keypress_rotation_main = function(config) {
                 if (keyPressed === key1 || keyPressed === key2) {
                     let correctness;
                     const RT = Date.now() - startingTime; // measure RT before anything else
-
+					
+					// clear old timeouts and remove them from the timeout array
+					  clearTimeout(window.timeout[0]);
+					  window.timeout.shift();
+					  clearTimeout(window.timeout[0]);
+					  window.timeout.shift();
+				
                     if (
                         config.data[CT].expected ===
                             config[keyPressed]
@@ -205,24 +213,19 @@ custom_views.keypress_rotation_main = function(config) {
                         $(".magpie-view-stimulus").addClass("magpie-invisible");
                         $('#feedback').text('');
 
-                    } else {
+                    } 
+					
+					else if (RT > 3500) {
+					}
+										
+					else {
                         correctness = "incorrect";
                         // show feedback
                         $(".magpie-view-stimulus").addClass("magpie-invisible");
                         $('#feedback').text('Incorrect answer!');
                     }
 
-
-					// if reponse is too slow
-					if (
-						RT > 3500
-					) {
-					// show feedback
-						$(".magpie-view-stimulus").addClass("magpie-invisible");
-                        $('#feedback').text('Too slow!');
-
-					} else {}
-
+				
 
                     const trial_data = {
                         trial_type: config.trial_type,

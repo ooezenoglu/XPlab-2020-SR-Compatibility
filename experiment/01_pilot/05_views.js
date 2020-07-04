@@ -232,6 +232,9 @@ const practice_compatible = custom_views.keypress_rotation_practice({
   key2: 'p',
   q: 'small',
   p: 'big',
+  hook: {
+    after_response_enabled: count_time
+  }
 });
 
 // Practice function for the incompatible trials
@@ -246,6 +249,9 @@ const practice_incompatible = custom_views.keypress_rotation_practice({
   key2: 'p',
   q: 'big',
   p: 'small',
+  hook: {
+    after_response_enabled: count_time
+  }
 });
 
 // Main function for the compatible trials
@@ -260,6 +266,9 @@ const main_compatible = custom_views.keypress_rotation_main({
   key2: 'p',
   q: 'small',
   p: 'big',
+  hook: {
+    after_response_enabled: count_time
+  }
 });
 
 // Main function for the incompatible trials
@@ -274,6 +283,9 @@ const main_incompatible = custom_views.keypress_rotation_main({
   key2: 'p',
   q: 'big',
   p: 'small',
+  hook: {
+    after_response_enabled: count_time
+  }
 });
 
 

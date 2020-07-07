@@ -40,15 +40,15 @@ const instructions_general = magpieViews.view_generator("instructions", {
   name: 'instructions_general',
   title: 'Instructions',
   // Apparently text size/font and alignment changes if sentences appear after the image?
-  text: `In the following experiment, you will see squares in one of two sizes in the center of you screen: small or big.
+  text: `In the following experiment, you will see squares in <strong>one of two sizes</strong> in the center of you screen: <strong>small</strong> or <strong>big</strong>.
          The picture below displays both square types.
 		     <br />
          <br />
 		     In each trial, you will either see the square in panel A or in panel B.
-		     Your task is to judge whether the square you see is the smaller or the bigger one.
+		     Your task is to judge whether the square you see is the <strong>smaller</strong> or the <strong>bigger</strong> one.
          <br />
          <br />
-         We will practice this first.
+         We will <strong>practice</strong> this first.
          <br />
          <br />
          <p style="text-align:center;"><img src="images/instructions-image.jpg" alt="instructions" height="300" width="400"></p>`,
@@ -70,11 +70,7 @@ const instructions_practice_compatible_1 = magpieViews.view_generator("instructi
          to press the <strong>'p'</strong> key on the right side of you keyboard.
          <br />
          <br />
-         If you click on the blue botton below, you will start to practice
-         stating wether the square you are seeing is either small or big.
-         <br />
-         <br />
-         Please be as quick and precise as possible!
+         Please be as <strong>quick and precise</strong> as possible!
          <br />
          <br />
          Let's begin!`,
@@ -96,11 +92,7 @@ const instructions_practice_incompatible_1 = magpieViews.view_generator("instruc
          to press the <strong>'q'</strong> key on the left side of you keyboard.
          <br />
          <br />
-         If you click on the blue botton below, you will start to practice
-         stating wether the square you are seeing is either small or big.
-         <br />
-         <br />
-         Please be as quick and precise as possible!
+         Please be as <strong>quick and precise</strong> as possible!
          <br />
          <br />
          Let's begin!`,
@@ -116,19 +108,19 @@ const instructions_practice_compatible_2 = magpieViews.view_generator("instructi
          <br />
          In the second half of this experiment, things are changing a little bit.
          <br />
-         Until now, you pressed the key 'p' if you saw a small square and the key
-         'q' if you saw a big square.
+         Until now, you pressed the <strong>'p'</strong> key if you saw a small square and the
+         <strong>'q'</strong> key if you saw a big square.
          <br />
          <br />
-         We will <strong>change</strong> this setting now.
+         We will <strong>reverse</strong> this setting now.
          <br />
          <br />
-         In the following trials you will have to press the key 'p' if you see
-         a <strong>big</strong> square and the key 'q' if you see a
+         In the following trials you will have to press the <strong>'p'</strong> key if you see
+         a <strong>big</strong> square and the <strong>'q'</strong> key if you see a
          <strong>small</strong> square.
          <br />
          <br />
-         Because this change of the meaning of the keys is a bit confusing, we
+         Because this reversal of the keys is a bit confusing, we
          will practice this new setting first!
          `,
   buttonText: 'go to practice trials'
@@ -143,19 +135,19 @@ const instructions_practice_incompatible_2 = magpieViews.view_generator("instruc
          <br />
          In the second half of this experiment, things are changing a little bit.
          <br />
-         Until now, you pressed the key 'q' if you saw a small square and the key
-         'p' if you saw a big square.
+         Until now, you pressed the <strong>'q'</strong> key if you saw a small square and the
+         <strong>'p'</strong> key if you saw a big square.
          <br />
          <br />
-         We will <strong>change</strong> this setting now.
+         We will <strong>reverse</strong> this setting now.
          <br />
          <br />
-         In the following trials you will have to press the key 'q' if you see
-         a <strong>big</strong> square and the key 'p' if you see a
+         In the following trials you will have to press the <strong>'q'</strong> key if you see
+         a <strong>big</strong> square and the <strong>'p'</strong> key if you see a
          <strong>small</strong> square.
          <br />
          <br />
-         Because this change of the meaning of the keys is a bit confusing, we
+         Because this reversal of the keys is a bit confusing, we
          will practice this new setting first!
          `,
   buttonText: 'go to practice trials'
@@ -166,10 +158,10 @@ const instructions_main = magpieViews.view_generator("instructions", {
   trials: 1,
   name: 'instructions_main',
   title: 'Instructions for the Main Trials',
-  text: `We're done with practicing and heading to the main trials.
+  text: `We're done with practicing and will head to the <strong>main trials</strong> now.
          <br />
          <br />
-         Again: Please be as quick and precise as possible!
+         Again: Please be as <strong>quick and precise</strong> as possible!
          <br />
          <br />
          If you're ready, press the button below and continue with the main

@@ -221,7 +221,7 @@ const forced_choice_left_right = magpieViews.view_generator("forced_choice", {
 });
 
 // Practice function for the compatible trials
-const practice_compatible = custom_views.keypress_rotation_practice({
+const practice_compatible = custom_views.keypress_rotation({
   trials: 10,
   name: 'practice_compatible',
   trial_type: 'practice',
@@ -238,7 +238,7 @@ const practice_compatible = custom_views.keypress_rotation_practice({
 });
 
 // Practice function for the incompatible trials
-const practice_incompatible = custom_views.keypress_rotation_practice({
+const practice_incompatible = custom_views.keypress_rotation({
   trials: 10,
   name: 'practice_incompatible',
   trial_type: 'practice',
@@ -255,7 +255,7 @@ const practice_incompatible = custom_views.keypress_rotation_practice({
 });
 
 // Main function for the compatible trials
-const main_compatible = custom_views.keypress_rotation_main({
+const main_compatible = custom_views.keypress_rotation({
   trials: 20,
   name: 'main_compatible',
   trial_type: 'main',
@@ -272,7 +272,7 @@ const main_compatible = custom_views.keypress_rotation_main({
 });
 
 // Main function for the incompatible trials
-const main_incompatible = custom_views.keypress_rotation_main({
+const main_incompatible = custom_views.keypress_rotation({
   trials: 20,
   name: 'main_incompatible',
   trial_type: 'main',

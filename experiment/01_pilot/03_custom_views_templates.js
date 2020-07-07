@@ -18,9 +18,9 @@ const custom_views = {};
 
 // We can now add view templates to our custom_views object
 
-// Custom view template for practice trials
-custom_views.keypress_rotation_practice = function(config) {
-    const keypress_rotation_practice_function = {
+// Custom view template for trials
+custom_views.keypress_rotation = function(config) {
+    const keypress_rotation_function = {
         name: config.name,
         title: magpieUtils.view.setter.title(config.title, ""),
         render: function(CT, magpie) {
@@ -156,6 +156,7 @@ custom_views.keypress_rotation_practice = function(config) {
         trials: config.trials
     };
 
+<<<<<<< Updated upstream
     return keypress_rotation_practice_function;
 };
 
@@ -299,3 +300,7 @@ custom_views.keypress_rotation_main = function(config) {
 
     return keypress_rotation_main_function;
 };
+=======
+    return keypress_rotation_function;
+};
+>>>>>>> Stashed changes

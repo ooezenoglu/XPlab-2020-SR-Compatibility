@@ -15,25 +15,28 @@ $("document").ready(function() {
     window.magpie_monitor = magpieInit({
         // You have to specify all views you want to use in this experiment and the order of them
         views_seq: [
-		
-            intro,	
-			forced_choice_left_right,
+
+            // Basic intro and instructions, independent of compatibility
+            intro,
+			      forced_choice_left_right,
             instructions_general,
-			
-            instructions_practice_compatible,
-            practice_compatible,
-			
-            instructions_main_compatible,
+
+            // Start with compatible trials
+            instructions_practice_compatible_1,
+            practice_compatible_1,
+            instructions_main,
             main_compatible,
-			
+
+			      // break between trial blocks
             instructions_break,
-			
-            instructions_practice_incompatible,
-            practice_incompatible,
-			
-            instructions_main_incompatible,
+
+            // Second half with incompatible trials
+            instructions_practice_incompatible_2,
+            practice_incompatible_2,
+            instructions_main,
             main_incompatible,
-			
+
+            // Post questionnaire and thanks
             post_test,
             thanks,
         ],
@@ -52,10 +55,12 @@ $("document").ready(function() {
         progress_bar: {
             in: [
                 // list the view-names of the views for which you want a progress bar
-                practice_compatible.name,
-				practice_incompatible.name,
-				main_compatible.name,
-				main_incompatible.name
+                practice_compatible_1.name,
+				        practice_incompatible_1.name,
+                practice_compatible_2.name,
+				        practice_incompatible_2.name,
+				        main_compatible.name,
+				        main_incompatible.name
             ],
              // Possible styles are "default", "separate" and "chunks"
             style: "separate",

@@ -27,216 +27,45 @@ const left_right = {
 }
 
 
-const practice_trials_compatible = {
+const trial_data_10 = {
 	key_press: [
 		{
-		  question: "Is this a small or a big square?",
 	  	picture: "images/small-stimulus.png",
 	  	expected: 'small'
   	},
 		{
-			question: "Is this a small or a big square?",
 	  	picture: "images/large-stimulus.png",
 	  	expected: 'big'
 		},
 		{
-		  question: "Is this a small or a big square?",
 	  	picture: "images/small-stimulus.png",
 	  	expected: 'small'
   	},
 		{
-			question: "Is this a small or a big square?",
 	  	picture: "images/large-stimulus.png",
 	  	expected: 'big'
 		},
 		{
-		  question: "Is this a small or a big square?",
 	  	picture: "images/small-stimulus.png",
 	  	expected: 'small'
   	},
 		{
-			question: "Is this a small or a big square?",
 	  	picture: "images/large-stimulus.png",
 	  	expected: 'big'
 		},
 		{
-		  question: "Is this a small or a big square?",
 	  	picture: "images/small-stimulus.png",
 	  	expected: 'small'
   	},
 		{
-			question: "Is this a small or a big square?",
 	  	picture: "images/large-stimulus.png",
 	  	expected: 'big'
 		},
 		{
-		  question: "Is this a small or a big square?",
 	  	picture: "images/small-stimulus.png",
 	  	expected: 'small'
   	},
 		{
-			question: "Is this a small or a big square?",
-	  	picture: "images/large-stimulus.png",
-	  	expected: 'big'
-		}
-	]
-}
-
-const practice_trials_incompatible = {
-	key_press: [
-		{
-		  question: "Is this a small or a big square?",
-	  	picture: "images/small-stimulus.png",
-	  	expected: 'small'
-  	},
-		{
-			question: "Is this a small or a big square?",
-	  	picture: "images/large-stimulus.png",
-	  	expected: 'big'
-		},
-		{
-		  question: "Is this a small or a big square?",
-	  	picture: "images/small-stimulus.png",
-	  	expected: 'small'
-  	},
-		{
-			question: "Is this a small or a big square?",
-	  	picture: "images/large-stimulus.png",
-	  	expected: 'big'
-		},
-		{
-		  question: "Is this a small or a big square?",
-	  	picture: "images/small-stimulus.png",
-	  	expected: 'small'
-  	},
-		{
-			question: "Is this a small or a big square?",
-	  	picture: "images/large-stimulus.png",
-	  	expected: 'big'
-		},
-		{
-		  question: "Is this a small or a big square?",
-	  	picture: "images/small-stimulus.png",
-	  	expected: 'small'
-  	},
-		{
-			question: "Is this a small or a big square?",
-	  	picture: "images/large-stimulus.png",
-	  	expected: 'big'
-		},
-		{
-		  question: "Is this a small or a big square?",
-	  	picture: "images/small-stimulus.png",
-	  	expected: 'small'
-  	},
-		{
-			question: "Is this a small or a big square?",
-	  	picture: "images/large-stimulus.png",
-	  	expected: 'big'
-		}
-	]
-};
-
-
-const main_trials_compatible = {
-	key_press: [
-		{
-		  question: "Is this a small or a big square?",
-	  	picture: "images/small-stimulus.png",
-	  	expected: 'small'
-  	},
-		{
-			question: "Is this a small or a big square?",
-	  	picture: "images/large-stimulus.png",
-	  	expected: 'big'
-		},
-		{
-		  question: "Is this a small or a big square?",
-	  	picture: "images/small-stimulus.png",
-	  	expected: 'small'
-  	},
-		{
-			question: "Is this a small or a big square?",
-	  	picture: "images/large-stimulus.png",
-	  	expected: 'big'
-		},
-		{
-		  question: "Is this a small or a big square?",
-	  	picture: "images/small-stimulus.png",
-	  	expected: 'small'
-  	},
-		{
-			question: "Is this a small or a big square?",
-	  	picture: "images/large-stimulus.png",
-	  	expected: 'big'
-		},
-		{
-		  question: "Is this a small or a big square?",
-	  	picture: "images/small-stimulus.png",
-	  	expected: 'small'
-  	},
-		{
-			question: "Is this a small or a big square?",
-	  	picture: "images/large-stimulus.png",
-	  	expected: 'big'
-		},
-		{
-		  question: "Is this a small or a big square?",
-	  	picture: "images/small-stimulus.png",
-	  	expected: 'small'
-  	},
-		{
-			question: "Is this a small or a big square?",
-	  	picture: "images/large-stimulus.png",
-	  	expected: 'big'
-		},
-		{
-		  question: "Is this a small or a big square?",
-	  	picture: "images/small-stimulus.png",
-	  	expected: 'small'
-  	},
-		{
-			question: "Is this a small or a big square?",
-	  	picture: "images/large-stimulus.png",
-	  	expected: 'big'
-		},
-		{
-		  question: "Is this a small or a big square?",
-	  	picture: "images/small-stimulus.png",
-	  	expected: 'small'
-  	},
-		{
-			question: "Is this a small or a big square?",
-	  	picture: "images/large-stimulus.png",
-	  	expected: 'big'
-		},
-		{
-		  question: "Is this a small or a big square?",
-	  	picture: "images/small-stimulus.png",
-	  	expected: 'small'
-  	},
-		{
-			question: "Is this a small or a big square?",
-	  	picture: "images/large-stimulus.png",
-	  	expected: 'big'
-		},
-		{
-		  question: "Is this a small or a big square?",
-	  	picture: "images/small-stimulus.png",
-	  	expected: 'small'
-  	},
-		{
-			question: "Is this a small or a big square?",
-	  	picture: "images/large-stimulus.png",
-	  	expected: 'big'
-		},
-		{
-		  question: "Is this a small or a big square?",
-	  	picture: "images/small-stimulus.png",
-	  	expected: 'small'
-  	},
-		{
-			question: "Is this a small or a big square?",
 	  	picture: "images/large-stimulus.png",
 	  	expected: 'big'
 		}
@@ -244,107 +73,333 @@ const main_trials_compatible = {
 }
 
 
-const main_trials_incompatible = {
+const trial_data_20 = {
 	key_press: [
 		{
-		  question: "Is this a small or a big square?",
 	  	picture: "images/small-stimulus.png",
 	  	expected: 'small'
   	},
 		{
-			question: "Is this a small or a big square?",
 	  	picture: "images/large-stimulus.png",
 	  	expected: 'big'
 		},
 		{
-		  question: "Is this a small or a big square?",
 	  	picture: "images/small-stimulus.png",
 	  	expected: 'small'
   	},
 		{
-			question: "Is this a small or a big square?",
 	  	picture: "images/large-stimulus.png",
 	  	expected: 'big'
 		},
 		{
-		  question: "Is this a small or a big square?",
 	  	picture: "images/small-stimulus.png",
 	  	expected: 'small'
   	},
 		{
-			question: "Is this a small or a big square?",
 	  	picture: "images/large-stimulus.png",
 	  	expected: 'big'
 		},
 		{
-		  question: "Is this a small or a big square?",
 	  	picture: "images/small-stimulus.png",
 	  	expected: 'small'
   	},
 		{
-			question: "Is this a small or a big square?",
 	  	picture: "images/large-stimulus.png",
 	  	expected: 'big'
 		},
 		{
-		  question: "Is this a small or a big square?",
 	  	picture: "images/small-stimulus.png",
 	  	expected: 'small'
   	},
 		{
-			question: "Is this a small or a big square?",
+	  	picture: "images/large-stimulus.png",
+	  	expected: 'big'
+		},
+    {
+	  	picture: "images/small-stimulus.png",
+	  	expected: 'small'
+  	},
+		{
 	  	picture: "images/large-stimulus.png",
 	  	expected: 'big'
 		},
 		{
-		  question: "Is this a small or a big square?",
 	  	picture: "images/small-stimulus.png",
 	  	expected: 'small'
   	},
 		{
-			question: "Is this a small or a big square?",
 	  	picture: "images/large-stimulus.png",
 	  	expected: 'big'
 		},
 		{
-		  question: "Is this a small or a big square?",
 	  	picture: "images/small-stimulus.png",
 	  	expected: 'small'
   	},
 		{
-			question: "Is this a small or a big square?",
 	  	picture: "images/large-stimulus.png",
 	  	expected: 'big'
 		},
 		{
-		  question: "Is this a small or a big square?",
 	  	picture: "images/small-stimulus.png",
 	  	expected: 'small'
   	},
 		{
-			question: "Is this a small or a big square?",
 	  	picture: "images/large-stimulus.png",
 	  	expected: 'big'
 		},
 		{
-		  question: "Is this a small or a big square?",
 	  	picture: "images/small-stimulus.png",
 	  	expected: 'small'
   	},
 		{
-			question: "Is this a small or a big square?",
-	  	picture: "images/large-stimulus.png",
-	  	expected: 'big'
-		},
-		{
-		  question: "Is this a small or a big square?",
-	  	picture: "images/small-stimulus.png",
-	  	expected: 'small'
-  	},
-		{
-			question: "Is this a small or a big square?",
 	  	picture: "images/large-stimulus.png",
 	  	expected: 'big'
 		}
 	]
-};
+}
+
+
+const trial_data_60 = {
+	key_press: [
+		{
+	  	picture: "images/small-stimulus.png",
+	  	expected: 'small'
+  	},
+		{
+	  	picture: "images/large-stimulus.png",
+	  	expected: 'big'
+		},
+		{
+	  	picture: "images/small-stimulus.png",
+	  	expected: 'small'
+  	},
+		{
+	  	picture: "images/large-stimulus.png",
+	  	expected: 'big'
+		},
+		{
+	  	picture: "images/small-stimulus.png",
+	  	expected: 'small'
+  	},
+		{
+	  	picture: "images/large-stimulus.png",
+	  	expected: 'big'
+		},
+		{
+	  	picture: "images/small-stimulus.png",
+	  	expected: 'small'
+  	},
+		{
+	  	picture: "images/large-stimulus.png",
+	  	expected: 'big'
+		},
+		{
+	  	picture: "images/small-stimulus.png",
+	  	expected: 'small'
+  	},
+		{
+	  	picture: "images/large-stimulus.png",
+	  	expected: 'big'
+		},
+    {
+	  	picture: "images/small-stimulus.png",
+	  	expected: 'small'
+  	},
+		{
+	  	picture: "images/large-stimulus.png",
+	  	expected: 'big'
+		},
+		{
+	  	picture: "images/small-stimulus.png",
+	  	expected: 'small'
+  	},
+		{
+	  	picture: "images/large-stimulus.png",
+	  	expected: 'big'
+		},
+		{
+	  	picture: "images/small-stimulus.png",
+	  	expected: 'small'
+  	},
+		{
+	  	picture: "images/large-stimulus.png",
+	  	expected: 'big'
+		},
+		{
+	  	picture: "images/small-stimulus.png",
+	  	expected: 'small'
+  	},
+		{
+	  	picture: "images/large-stimulus.png",
+	  	expected: 'big'
+		},
+		{
+	  	picture: "images/small-stimulus.png",
+	  	expected: 'small'
+  	},
+		{
+	  	picture: "images/large-stimulus.png",
+	  	expected: 'big'
+		},
+    {
+	  	picture: "images/small-stimulus.png",
+	  	expected: 'small'
+  	},
+		{
+	  	picture: "images/large-stimulus.png",
+	  	expected: 'big'
+		},
+		{
+	  	picture: "images/small-stimulus.png",
+	  	expected: 'small'
+  	},
+		{
+	  	picture: "images/large-stimulus.png",
+	  	expected: 'big'
+		},
+		{
+	  	picture: "images/small-stimulus.png",
+	  	expected: 'small'
+  	},
+		{
+	  	picture: "images/large-stimulus.png",
+	  	expected: 'big'
+		},
+		{
+	  	picture: "images/small-stimulus.png",
+	  	expected: 'small'
+  	},
+		{
+	  	picture: "images/large-stimulus.png",
+	  	expected: 'big'
+		},
+		{
+	  	picture: "images/small-stimulus.png",
+	  	expected: 'small'
+  	},
+		{
+	  	picture: "images/large-stimulus.png",
+	  	expected: 'big'
+		},
+    {
+	  	picture: "images/small-stimulus.png",
+	  	expected: 'small'
+  	},
+		{
+	  	picture: "images/large-stimulus.png",
+	  	expected: 'big'
+		},
+		{
+	  	picture: "images/small-stimulus.png",
+	  	expected: 'small'
+  	},
+		{
+	  	picture: "images/large-stimulus.png",
+	  	expected: 'big'
+		},
+		{
+	  	picture: "images/small-stimulus.png",
+	  	expected: 'small'
+  	},
+		{
+	  	picture: "images/large-stimulus.png",
+	  	expected: 'big'
+		},
+		{
+	  	picture: "images/small-stimulus.png",
+	  	expected: 'small'
+  	},
+		{
+	  	picture: "images/large-stimulus.png",
+	  	expected: 'big'
+		},
+		{
+	  	picture: "images/small-stimulus.png",
+	  	expected: 'small'
+  	},
+		{
+	  	picture: "images/large-stimulus.png",
+	  	expected: 'big'
+		},
+    {
+	  	picture: "images/small-stimulus.png",
+	  	expected: 'small'
+  	},
+		{
+	  	picture: "images/large-stimulus.png",
+	  	expected: 'big'
+		},
+		{
+	  	picture: "images/small-stimulus.png",
+	  	expected: 'small'
+  	},
+		{
+	  	picture: "images/large-stimulus.png",
+	  	expected: 'big'
+		},
+		{
+	  	picture: "images/small-stimulus.png",
+	  	expected: 'small'
+  	},
+		{
+	  	picture: "images/large-stimulus.png",
+	  	expected: 'big'
+		},
+		{
+	  	picture: "images/small-stimulus.png",
+	  	expected: 'small'
+  	},
+		{
+	  	picture: "images/large-stimulus.png",
+	  	expected: 'big'
+		},
+		{
+	  	picture: "images/small-stimulus.png",
+	  	expected: 'small'
+  	},
+		{
+	  	picture: "images/large-stimulus.png",
+	  	expected: 'big'
+		},
+    {
+	  	picture: "images/small-stimulus.png",
+	  	expected: 'small'
+  	},
+		{
+	  	picture: "images/large-stimulus.png",
+	  	expected: 'big'
+		},
+		{
+	  	picture: "images/small-stimulus.png",
+	  	expected: 'small'
+  	},
+		{
+	  	picture: "images/large-stimulus.png",
+	  	expected: 'big'
+		},
+		{
+	  	picture: "images/small-stimulus.png",
+	  	expected: 'small'
+  	},
+		{
+	  	picture: "images/large-stimulus.png",
+	  	expected: 'big'
+		},
+		{
+	  	picture: "images/small-stimulus.png",
+	  	expected: 'small'
+  	},
+		{
+	  	picture: "images/large-stimulus.png",
+	  	expected: 'big'
+		},
+		{
+	  	picture: "images/small-stimulus.png",
+	  	expected: 'small'
+  	},
+		{
+	  	picture: "images/large-stimulus.png",
+	  	expected: 'big'
+		}
+	]
+}

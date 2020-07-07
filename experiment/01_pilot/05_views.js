@@ -41,11 +41,25 @@ const instructions_general = magpieViews.view_generator("instructions", {
   title: 'Instructions',
   // Apparently text size/font and alignment changes if sentences appear after the image?
   text: `In the following experiment, you will see squares in one of two sizes in the center of you screen: small or big.
-         The picture below depicts both square types.
-		 <br />
+         The picture below displays both square types.
+		     <br />
          <br />
-		 In each trial, you will either see the square in panel A or in panel B.
-		 Your task is to judge whether the square you see is the smaller or the bigger one.
+		     In each trial, you will either see the square in panel A or in panel B.
+		     Your task is to judge whether the square you see is the smaller or the bigger one.
+         <br />
+         <br />
+         We will practice this first.
+         <br />
+         <br />
+         <p style="text-align:center;"><img src="images/instructions-image.jpg" alt="instructions" height="300" width="400"></p>`,
+  buttonText: 'Continue'
+});
+
+const instructions_practice_compatible_1 = magpieViews.view_generator("instructions", {
+  trials: 1,
+  name: 'instructions_practice_compatible_1',
+  title: 'Further Instructions',
+  text: `Alright!
          <br />
          <br />
          If you see the <strong>small</strong> square, please use the index finger of your <strong>left</strong> hand
@@ -56,24 +70,31 @@ const instructions_general = magpieViews.view_generator("instructions", {
          to press the <strong>'p'</strong> key on the right side of you keyboard.
          <br />
          <br />
-         We will practice this first.
+         If you click on the blue botton below, you will start to practice
+         stating wether the square you are seeing is either small or big.
          <br />
          <br />
-         Please respond as fast and accurate as possible!
-         <p style="text-align:center;"><img src="images/instructions-image.jpg" alt="instructions" height="300" width="400"></p>`,
-  buttonText: 'Continue'
+         Please be as quick and precise as possible!
+         <br />
+         <br />
+         Let's begin!`,
+  buttonText: 'go to practice trials'
 });
 
-const instructions_practice_compatible = magpieViews.view_generator("instructions", {
+const instructions_practice_incompatible_1 = magpieViews.view_generator("instructions", {
   trials: 1,
-  name: 'instructions_practice_compatible',
-  title: 'Further Instructions',
-  text:  'General Instructions',
+  name: 'instructions_practice_incompatible_1',
+  title: 'Further instructions',
   text: `Alright!
          <br />
          <br />
-         Now that you know the difference between the small and the big square,
-         we will head to the practice session.
+         If you see the <strong>small</strong> square, please use the index finger of your <strong>right</strong> hand
+         to press the <strong>'p'</strong> key on the right side of your keyboard.
+         <br />
+         <br />
+         If you see the <strong>big</strong> square, please use the index finger of your <strong>left</strong> hand
+         to press the <strong>'q'</strong> key on the left side of you keyboard.
+         <br />
          <br />
          If you click on the blue botton below, you will start to practice
          stating wether the square you are seeing is either small or big.
@@ -82,17 +103,40 @@ const instructions_practice_compatible = magpieViews.view_generator("instruction
          Please be as quick and precise as possible!
          <br />
          <br />
-         Don't forget: <strong>'q'</strong> is for <strong>small</strong> and
-         <strong>'p'</strong> is for <strong>big</strong>!
-         <br />
-         <br />
          Let's begin!`,
   buttonText: 'go to practice trials'
 });
 
-const instructions_practice_incompatible = magpieViews.view_generator("instructions", {
+const instructions_practice_compatible_2 = magpieViews.view_generator("instructions", {
   trials: 1,
-  name: 'instructions_practice_incompatible',
+  name: 'instructions_practice_compatible_2',
+  title: 'Instructions for the second half of the experiment',
+  text: `You've done great so far!
+         <br />
+         <br />
+         In the second half of this experiment, things are changing a little bit.
+         <br />
+         Until now, you pressed the key 'p' if you saw a small square and the key
+         'q' if you saw a big square.
+         <br />
+         <br />
+         We will <strong>change</strong> this setting now.
+         <br />
+         <br />
+         In the following trials you will have to press the key 'p' if you see
+         a <strong>big</strong> square and the key 'q' if you see a
+         <strong>small</strong> square.
+         <br />
+         <br />
+         Because this change of the meaning of the keys is a bit confusing, we
+         will practice this new setting first!
+         `,
+  buttonText: 'go to practice trials'
+});
+
+const instructions_practice_incompatible_2 = magpieViews.view_generator("instructions", {
+  trials: 1,
+  name: 'instructions_practice_incompatible_2',
   title: 'Instructions for the second half of the experiment',
   text: `You've done great so far!
          <br />
@@ -100,7 +144,7 @@ const instructions_practice_incompatible = magpieViews.view_generator("instructi
          In the second half of this experiment, things are changing a little bit.
          <br />
          Until now, you pressed the key 'q' if you saw a small square and the key
-         'P' if you saw a big square.
+         'p' if you saw a big square.
          <br />
          <br />
          We will <strong>change</strong> this setting now.
@@ -117,26 +161,19 @@ const instructions_practice_incompatible = magpieViews.view_generator("instructi
   buttonText: 'go to practice trials'
 });
 
-const instructions_main_compatible = magpieViews.view_generator("instructions", {
+
+const instructions_main = magpieViews.view_generator("instructions", {
   trials: 1,
-  name: 'instructions_main_compatible',
+  name: 'instructions_main',
   title: 'Instructions for the Main Trials',
-  text: `After practicing, you're a sqaure-expert now!
+  text: `We're done with practicing and heading to the main trials.
+         <br />
+         <br />
+         Again: Please be as quick and precise as possible!
          <br />
          <br />
          If you're ready, press the button below and continue with the main
          trials.`,
-  buttonText: 'go to main trials'
-});
-
-const instructions_main_incompatible = magpieViews.view_generator("instructions", {
-  trials: 1,
-  name: 'instructions_main_incompatible',
-  title: 'Instructions for the Main Trials',
-  text: `We're done with practicing and heading to the second phase of main trials.
-         <br />
-         <br />
-         Again: Please be as quick and precise as possible!`,
   buttonText: 'go to main trials'
 });
 
@@ -221,13 +258,28 @@ const forced_choice_left_right = magpieViews.view_generator("forced_choice", {
 });
 
 // Practice function for the compatible trials
-const practice_compatible = custom_views.keypress_rotation({
+const practice_compatible_1 = custom_views.keypress_rotation({
   trials: 10,
-  name: 'practice_compatible',
+  name: 'practice_compatible_1',
   trial_type: 'practice',
   fix_duration: 1000,
-  pause: 1500,
-  data: _.shuffle(practice_trials_compatible.key_press),
+  data: _.shuffle(trial_data_10.key_press),
+  key1: 'q',
+  key2: 'p',
+  q: 'small',
+  p: 'big',
+  hook: {
+    after_response_enabled: count_time
+  }
+});
+
+// Practice function for the compatible trials
+const practice_compatible_2 = custom_views.keypress_rotation({
+  trials: 20,
+  name: 'practice_compatible_2',
+  trial_type: 'practice',
+  fix_duration: 1000,
+  data: _.shuffle(trial_data_20.key_press),
   key1: 'q',
   key2: 'p',
   q: 'small',
@@ -238,13 +290,28 @@ const practice_compatible = custom_views.keypress_rotation({
 });
 
 // Practice function for the incompatible trials
-const practice_incompatible = custom_views.keypress_rotation({
+const practice_incompatible_1 = custom_views.keypress_rotation({
   trials: 10,
-  name: 'practice_incompatible',
+  name: 'practice_incompatible_1',
   trial_type: 'practice',
   fix_duration: 1000,
-  pause: 1500,
-  data: _.shuffle(practice_trials_incompatible.key_press),
+  data: _.shuffle(trial_data_10.key_press),
+  key1: 'q',
+  key2: 'p',
+  q: 'big',
+  p: 'small',
+  hook: {
+    after_response_enabled: count_time
+  }
+});
+
+// Practice function for the incompatible trials
+const practice_incompatible_2 = custom_views.keypress_rotation({
+  trials: 20,
+  name: 'practice_incompatible_2',
+  trial_type: 'practice',
+  fix_duration: 1000,
+  data: _.shuffle(trial_data_20.key_press),
   key1: 'q',
   key2: 'p',
   q: 'big',
@@ -256,12 +323,11 @@ const practice_incompatible = custom_views.keypress_rotation({
 
 // Main function for the compatible trials
 const main_compatible = custom_views.keypress_rotation({
-  trials: 20,
+  trials: 60,
   name: 'main_compatible',
   trial_type: 'main',
   fix_duration: 1000,
-  pause: 1500,
-  data: _.shuffle(main_trials_compatible.key_press),
+  data: _.shuffle(trial_data_60.key_press),
   key1: 'q',
   key2: 'p',
   q: 'small',
@@ -273,12 +339,11 @@ const main_compatible = custom_views.keypress_rotation({
 
 // Main function for the incompatible trials
 const main_incompatible = custom_views.keypress_rotation({
-  trials: 20,
+  trials: 60,
   name: 'main_incompatible',
   trial_type: 'main',
   fix_duration: 1000,
-  pause: 1500,
-  data: _.shuffle(main_trials_incompatible.key_press),
+  data: _.shuffle(trial_data_60.key_press),
   key1: 'q',
   key2: 'p',
   q: 'big',

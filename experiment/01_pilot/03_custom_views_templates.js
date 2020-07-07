@@ -50,19 +50,19 @@ custom_views.keypress_rotation = function(config) {
                 const keyPressed = String.fromCharCode(
                     e.which
                 ).toLowerCase();
-				
+
 
 
                 if (keyPressed === key1 || keyPressed === key2) {
                     let correctness;
                     const RT = Date.now() - startingTime; // measure RT before anything else
-					
+
 					// clear old timeouts and remove them from the timeout array
 					  clearTimeout(window.timeout[0]);
 					  window.timeout.shift();
 					  clearTimeout(window.timeout[0]);
 					  window.timeout.shift();
-				
+
                     if (
                         config.data[CT].expected ===
                             config[keyPressed]
@@ -72,11 +72,11 @@ custom_views.keypress_rotation = function(config) {
                         $(".magpie-view-stimulus").addClass("magpie-invisible");
                         $('#feedback').text('');
 
-                    } 
-					
+                    }
+
 					else if (RT > 3500) {
 					}
-										
+
 					else {
                         correctness = "incorrect";
                         // show feedback
@@ -84,7 +84,7 @@ custom_views.keypress_rotation = function(config) {
                         $('#feedback').text('Incorrect answer!');
                     }
 
-				
+
 
                     const trial_data = {
                         trial_type: config.trial_type,
@@ -128,7 +128,7 @@ custom_views.keypress_rotation = function(config) {
 
                     magpie.trial_data.push(trial_data);
                     $("body").off("keydown", handleKeyPress);
-                    setTimeout(magpie.findNextView, 400); // delay to accomodate feedback
+                    setTimeout(magpie.findNextView, 1500); // delay to accomodate feedback
                 }
             };
 

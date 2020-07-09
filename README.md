@@ -8,11 +8,11 @@ We created the stimuli by ourselves. They are available [here](https://github.co
 
 ## Experiment
 
-The study is a 2 (mapping: compatible, incompatible) x 2 (size: small, large) within-subjects design.
+The study is a 2 (mapping: compatible, incompatible) x 2 (correct response location: left, right) within-subjects design.
 
 In each trial, participants either see a small square (2 x 2 cm) or a large square (4 x 4 cm) at screen center. Their task is to judge whether the square is the smaller or the larger one (forced binary choice).
-In the *compatible* mapping condition, participants should respond to the small square by pressing the left "tabulator" key, and should respond to the large square by pressing the right "backspace" key. 
-In the *incompatible* mapping condition, it is the other way around: Participants should press the left key if they see the large square and the right key if they see the small square.
+In the *compatible* mapping condition, participants should respond to the small square by pressing the "q" key, and should respond to the large square by pressing the "p" key. 
+In the *incompatible* mapping condition, it is the other way around: Participants should press the "q" key if they see the large square and the "p" key if they see the small square.
 
 The experiment consists of six parts:
 

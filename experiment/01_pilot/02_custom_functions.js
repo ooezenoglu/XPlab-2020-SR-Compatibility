@@ -4,7 +4,14 @@
 *
 *
 */
+let boolean comaptible = true;
 const coin = _.sample(["head", "tail"]); // You can determine global (random) parameters here
+if (coin == "head") {
+  comaptible = true;
+}
+else {
+  compatible = false;
+}
 // Declare your variables here
 
 
@@ -31,7 +38,7 @@ const generateID = function(len) {
 
 
 
-/* Hooks  
+/* Hooks
 *
 *
 */

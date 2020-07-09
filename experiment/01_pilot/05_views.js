@@ -269,7 +269,7 @@ const forced_choice_left_right = magpieViews.view_generator("forced_choice", {
 const practice_compatible_1 = custom_views.keypress_rotation({
   trials: 10,
   name: 'practice_compatible_1',
-  trial_type: 'practice',
+  trial_type: 'practice_compatible_first',
   fix_duration: 1000,
   data: _.shuffle(trial_data_10.key_press),
   key1: 'q',
@@ -285,7 +285,7 @@ const practice_compatible_1 = custom_views.keypress_rotation({
 const practice_compatible_2 = custom_views.keypress_rotation({
   trials: 20,
   name: 'practice_compatible_2',
-  trial_type: 'practice',
+  trial_type: 'practice_incompatible_first',
   fix_duration: 1000,
   data: _.shuffle(trial_data_20.key_press),
   key1: 'q',
@@ -301,7 +301,7 @@ const practice_compatible_2 = custom_views.keypress_rotation({
 const practice_incompatible_1 = custom_views.keypress_rotation({
   trials: 10,
   name: 'practice_incompatible_1',
-  trial_type: 'practice',
+  trial_type: 'practice_incompatible_first',
   fix_duration: 1000,
   data: _.shuffle(trial_data_10.key_press),
   key1: 'q',
@@ -317,7 +317,7 @@ const practice_incompatible_1 = custom_views.keypress_rotation({
 const practice_incompatible_2 = custom_views.keypress_rotation({
   trials: 20,
   name: 'practice_incompatible_2',
-  trial_type: 'practice',
+  trial_type: 'practice_compatible_first',
   fix_duration: 1000,
   data: _.shuffle(trial_data_20.key_press),
   key1: 'q',
@@ -330,10 +330,26 @@ const practice_incompatible_2 = custom_views.keypress_rotation({
 });
 
 // Main function for the compatible trials
-const main_compatible = custom_views.keypress_rotation({
+const main_compatible_1 = custom_views.keypress_rotation({
   trials: 60,
-  name: 'main_compatible',
-  trial_type: 'main',
+  name: 'main_compatible_1',
+  trial_type: 'main_compatible_first',
+  fix_duration: 1000,
+  data: _.shuffle(trial_data_60.key_press),
+  key1: 'q',
+  key2: 'p',
+  q: 'small',
+  p: 'big',
+  hook: {
+    after_response_enabled: count_time
+  }
+});
+
+// Main function for the compatible trials
+const main_compatible_2 = custom_views.keypress_rotation({
+  trials: 60,
+  name: 'main_compatible_2',
+  trial_type: 'main_incompatible_first',
   fix_duration: 1000,
   data: _.shuffle(trial_data_60.key_press),
   key1: 'q',
@@ -346,10 +362,26 @@ const main_compatible = custom_views.keypress_rotation({
 });
 
 // Main function for the incompatible trials
-const main_incompatible = custom_views.keypress_rotation({
+const main_incompatible_1 = custom_views.keypress_rotation({
   trials: 60,
-  name: 'main_incompatible',
-  trial_type: 'main',
+  name: 'main_incompatible_1',
+  trial_type: 'main_incompatible_first',
+  fix_duration: 1000,
+  data: _.shuffle(trial_data_60.key_press),
+  key1: 'q',
+  key2: 'p',
+  q: 'big',
+  p: 'small',
+  hook: {
+    after_response_enabled: count_time
+  }
+});
+
+// Main function for the incompatible trials
+const main_incompatible_2 = custom_views.keypress_rotation({
+  trials: 60,
+  name: 'main_incompatible_2',
+  trial_type: 'main_compatible_first',
   fix_duration: 1000,
   data: _.shuffle(trial_data_60.key_press),
   key1: 'q',

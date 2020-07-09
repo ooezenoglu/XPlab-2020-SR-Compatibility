@@ -1,5 +1,9 @@
 // In this file you initialize and configure your experiment using magpieInit
+
+// Random selection of
 const coin = _.sample(["head", "tail"]);
+
+// head = compatible first
 if (coin == "head") {
 
 $("document").ready(function() {
@@ -21,14 +25,14 @@ $("document").ready(function() {
             // Basic intro and instructions, independent of compatibility
 
             intro,
-			forced_choice_left_right,
+		      	forced_choice_left_right,
             instructions_general,
 
             // Start with compatible trials
             instructions_practice_compatible_1,
             practice_compatible_1,
             instructions_main_1,
-            main_compatible,
+            main_compatible_1,
 
 			      // break between trial blocks
             instructions_break,
@@ -37,7 +41,7 @@ $("document").ready(function() {
             instructions_practice_incompatible_2,
             practice_incompatible_2,
             instructions_main_2,
-            main_incompatible,
+            main_incompatible_2,
 
             // Post questionnaire and thanks
             post_test,
@@ -62,8 +66,10 @@ $("document").ready(function() {
 				        practice_incompatible_1.name,
                 practice_compatible_2.name,
 				        practice_incompatible_2.name,
-				        main_compatible.name,
-				        main_incompatible.name
+				        main_compatible_1.name,
+                main_compatible_2.name,
+				        main_incompatible_1.name,
+                main_incompatible_1.name
             ],
              // Possible styles are "default", "separate" and "chunks"
             style: "separate",
@@ -95,23 +101,23 @@ else {
             // Basic intro and instructions, independent of compatibility
 
             intro,
-		    forced_choice_left_right,
+		        forced_choice_left_right,
             instructions_general,
 
             // Start with incompatible trials
             instructions_practice_incompatible_1,
             practice_incompatible_1,
             instructions_main_1,
-            main_incompatible,
-			
+            main_incompatible_1,
+
 			// break between trial blocks
             instructions_break,
-			
+
 		    // Second half with compatible trials
             instructions_practice_compatible_2,
             practice_compatible_2,
             instructions_main_2,
-            main_compatible,
+            main_compatible_2,
 
             // Post questionnaire and thanks
             post_test,
@@ -136,8 +142,10 @@ else {
 				        practice_incompatible_1.name,
                 practice_compatible_2.name,
 				        practice_incompatible_2.name,
-				        main_compatible.name,
-				        main_incompatible.name
+				        main_compatible_1.name,
+                main_compatible_2.name,
+				        main_incompatible_1.name,
+                main_incompatible_1.name
             ],
              // Possible styles are "default", "separate" and "chunks"
             style: "separate",
@@ -146,4 +154,4 @@ else {
     });
 });
 
-}	
+}

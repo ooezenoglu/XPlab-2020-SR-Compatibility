@@ -4,10 +4,10 @@
 *
 *
 */
-let boolean comaptible = true;
+boolean compatible = true;
 const coin = _.sample(["head", "tail"]); // You can determine global (random) parameters here
 if (coin == "head") {
-  comaptible = true;
+  compatible = true;
 }
 else {
   compatible = false;

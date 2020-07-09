@@ -154,9 +154,9 @@ const instructions_practice_incompatible_2 = magpieViews.view_generator("instruc
 });
 
 
-const instructions_main = magpieViews.view_generator("instructions", {
+const instructions_main_1 = magpieViews.view_generator("instructions", {
   trials: 1,
-  name: 'instructions_main',
+  name: 'instructions_main_1',
   title: 'Instructions for the Main Trials',
   text: `We're done with practicing and will head to the <strong>main trials</strong> now.
          <br />
@@ -168,6 +168,22 @@ const instructions_main = magpieViews.view_generator("instructions", {
          trials.`,
   buttonText: 'go to main trials'
 });
+
+const instructions_main_2 = magpieViews.view_generator("instructions", {
+  trials: 1,
+  name: 'instructions_main_2',
+  title: 'Instructions for the Main Trials',
+  text: `We're done with practicing and will head to the <strong>main trials</strong> now.
+         <br />
+         <br />
+         Again: Please be as <strong>quick and precise</strong> as possible!
+         <br />
+         <br />
+         If you're ready, press the button below and continue with the main
+         trials.`,
+  buttonText: 'go to main trials'
+});
+
 
 const instructions_break = magpieViews.view_generator("instructions", {
   trials: 1,
@@ -344,6 +360,8 @@ const main_incompatible = custom_views.keypress_rotation({
     after_response_enabled: count_time
   }
 });
+
+
 
 
 // There are many more templates available:

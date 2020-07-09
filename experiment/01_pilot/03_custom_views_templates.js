@@ -55,7 +55,7 @@ custom_views.keypress_rotation = function(config) {
 
                 if (keyPressed === key1 || keyPressed === key2) {
                     let correctness;
-                    const RT = Date.now() - startingTime; // measure RT before anything else
+                    const RT = Date.now() - startingTime - 1000; // measure RT before anything else, substract fixation time from trial (1000)
 
 					// clear old timeouts and remove them from the timeout array
 					  clearTimeout(window.timeout[0]);
@@ -74,7 +74,8 @@ custom_views.keypress_rotation = function(config) {
 
                     }
 
-					else if (RT > 3500) {
+					else if (RT > 2500) {
+						correctness = "no answer";
 					}
 
 					else {

@@ -76,6 +76,8 @@ custom_views.keypress_rotation = function(config) {
 
 					else if (RT > 2500) {
 						correctness = "no answer";
+						$(".magpie-view-stimulus").addClass("magpie-invisible");
+						$('#feedback').text('');
 					}
 
 					else {

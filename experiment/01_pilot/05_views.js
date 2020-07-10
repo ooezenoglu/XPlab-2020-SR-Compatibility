@@ -209,7 +209,7 @@ const post_test = magpieViews.view_generator("post_test", {
   trials: 1,
   name: 'post_test',
   title: 'Additional information',
-  text: 'Answering the following questions is optional, but your answers will help us analyze our results.'
+  text: 'Answering the following questions is optional, but your answers will help us analyze our results.',
 
   // You can change much of what appears here, e.g., to present it in a different language, as follows:
   // buttonText: 'Weiter',
@@ -218,10 +218,10 @@ const post_test = magpieViews.view_generator("post_test", {
   // gender_male: 'männlich',
   // gender_female: 'weiblich',
   // gender_other: 'divers',
-  // edu_question: 'Höchster Bildungsabschluss',
-  // edu_graduated_high_school: 'Abitur',
-  // edu_graduated_college: 'Hochschulabschluss',
-  // edu_higher_degree: 'Universitärer Abschluss',
+   edu_question: '<span style="color:firebrick; font-weight: bold;">Dominant hand</span>',
+   edu_graduated_high_school: 'left',
+   edu_graduated_college: 'right',
+   edu_higher_degree: 'I am able to use both hands equally well.',
   // languages_question: 'Muttersprache',
   // languages_more: '(in der Regel die Sprache, die Sie als Kind zu Hause gesprochen haben)',
   // comments_question: 'Weitere Kommentare'

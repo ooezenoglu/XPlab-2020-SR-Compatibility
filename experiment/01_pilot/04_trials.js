@@ -17,7 +17,7 @@ const count_time = function (data, next) {
 const left_right = {
 	forced_choice: [
 		{
-			question: "Are you <strong>left-handed</strong> or <strong>right-handed</strong>?",
+			question: "Are you left-handed or right-handed?",
 			picture: "images/hands_unsplashed.png",
 			option1: 'left-handed',
 			option2: 'right-handed',

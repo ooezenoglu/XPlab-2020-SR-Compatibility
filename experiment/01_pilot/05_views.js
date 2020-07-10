@@ -51,6 +51,7 @@ const instructions_general = magpieViews.view_generator("instructions", {
          We will <strong>practice</strong> this first.
          <br />
          <br />
+         Please make sure that you will <strong>not get disturbed</strong> in the next 10-15 minutes and that you <strong>fully concentrate</strong> on this experiment!
          <p style="text-align:center;"><img src="../materials/instructions-image.jpg" alt="instructions" height="300" width="400"></p>`,
   buttonText: 'Continue'
 });

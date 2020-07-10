@@ -332,7 +332,7 @@ const main_compatible_1 = custom_views.keypress_rotation({
 const main_compatible_2 = custom_views.keypress_rotation({
   trials: 60,
   name: 'main_compatible_2',
-  trial_type: 'main_incomptaible_second', // compatible trials, compatible condition as the second trial session
+  trial_type: 'main_compatible_second', // compatible trials, compatible condition as the second trial session
   fix_duration: 1000,
   data: _.shuffle(trial_data_60.key_press),
   key1: 'q',

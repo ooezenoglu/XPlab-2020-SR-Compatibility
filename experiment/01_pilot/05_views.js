@@ -121,8 +121,7 @@ const instructions_practice_compatible_2 = magpieViews.view_generator("instructi
          <strong>small</strong> square.
          <br />
          <br />
-         Because this reversal of the keys is a bit confusing, we
-         will practice this new setting first!
+         Due to this reversal of the keys, we will practice this new setting first!
          `,
   buttonText: 'go to practice trials'
 });
@@ -148,8 +147,7 @@ const instructions_practice_incompatible_2 = magpieViews.view_generator("instruc
          <strong>small</strong> square.
          <br />
          <br />
-         Because this reversal of the keys is a bit confusing, we
-         will practice this new setting first!
+         Due to this reversal of the keys, we will practice this new setting first!
          `,
   buttonText: 'go to practice trials'
 });
@@ -192,8 +190,7 @@ const instructions_break = magpieViews.view_generator("instructions", {
   title: 'A little break',
   text: `Great, the first half of the experiment is done.
          <br />
-         Grab yourself a glass of water, take some deep breaths or do some
-         push-ups.
+         If you want to, you can take a short break now.
          <br />
          <br />
          If you are ready, please continue with the instructions for the second

@@ -1,10 +1,10 @@
 // In this file you initialize and configure your experiment using magpieInit
 
 // Random selection of
-const coin = _.sample(["head", "tail"]);
+const compatibility = _.sample(["compatible", "incompatible"]);
 
 // head = compatible first
-if (coin == "head") {
+if (compatibility == "compatible") {
 
 $("document").ready(function() {
     // prevent scrolling when space is pressed

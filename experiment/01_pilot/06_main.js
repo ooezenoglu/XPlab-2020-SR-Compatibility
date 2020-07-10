@@ -30,6 +30,17 @@ if (mapping == "compatible") {
             // Start with compatible trials
             instructions_practice_compatible_1,
             practice_compatible_1,
+            instructions_main_1,
+            main_compatible_1,
+
+			      // break between trial blocks
+            instructions_break,
+
+            // Second half with incompatible trials
+            instructions_practice_incompatible_2,
+            practice_incompatible_2,
+            instructions_main_2,
+            main_incompatible_2,
 
             // Post questionnaire and thanks
             post_test,
@@ -94,6 +105,17 @@ else {
             // Start with incompatible trials
             instructions_practice_incompatible_1,
             practice_incompatible_1,
+            instructions_main_1,
+            main_incompatible_1,
+
+			// break between trial blocks
+            instructions_break,
+
+		    // Second half with compatible trials
+            instructions_practice_compatible_2,
+            practice_compatible_2,
+            instructions_main_2,
+            main_compatible_2,
 
             // Post questionnaire and thanks
             post_test,

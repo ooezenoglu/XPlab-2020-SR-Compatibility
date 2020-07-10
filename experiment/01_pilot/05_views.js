@@ -316,7 +316,7 @@ const practice_incompatible_2 = custom_views.keypress_rotation({
 const main_compatible_1 = custom_views.keypress_rotation({
   trials: 60,
   name: 'main_compatible_1',
-  trial_type: 'main_compatible_first',
+  trial_type: 'main_compatible_first', // compatible trials, compatible condition as the first trial session
   fix_duration: 1000,
   data: _.shuffle(trial_data_60.key_press),
   key1: 'q',
@@ -332,7 +332,7 @@ const main_compatible_1 = custom_views.keypress_rotation({
 const main_compatible_2 = custom_views.keypress_rotation({
   trials: 60,
   name: 'main_compatible_2',
-  trial_type: 'main_incompatible_first',
+  trial_type: 'main_incomptaible_second', // compatible trials, compatible condition as the second trial session
   fix_duration: 1000,
   data: _.shuffle(trial_data_60.key_press),
   key1: 'q',
@@ -348,7 +348,7 @@ const main_compatible_2 = custom_views.keypress_rotation({
 const main_incompatible_1 = custom_views.keypress_rotation({
   trials: 60,
   name: 'main_incompatible_1',
-  trial_type: 'main_incompatible_first',
+  trial_type: 'main_incompatible_first', // incompatible trials, incompatible condition as the first trial session
   fix_duration: 1000,
   data: _.shuffle(trial_data_60.key_press),
   key1: 'q',
@@ -364,7 +364,7 @@ const main_incompatible_1 = custom_views.keypress_rotation({
 const main_incompatible_2 = custom_views.keypress_rotation({
   trials: 60,
   name: 'main_incompatible_2',
-  trial_type: 'main_compatible_first',
+  trial_type: 'main_incomptaible_second', // incompatible trials, incompatible condition as the second trial session
   fix_duration: 1000,
   data: _.shuffle(trial_data_60.key_press),
   key1: 'q',

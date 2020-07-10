@@ -51,7 +51,8 @@ const instructions_general = magpieViews.view_generator("instructions", {
          We will <strong>practice</strong> this first.
          <br />
          <br />
-         <p style="text-align:center;"><img src="images/instructions-image.jpg" alt="instructions" height="300" width="400"></p>`,
+         Please make sure that you will <strong>not get disturbed</strong> in the next 10-15 minutes and that you <strong>fully concentrate</strong> on this experiment!
+         <p style="text-align:center;"><img src="../materials/instructions-image.jpg" alt="instructions" height="300" width="400"></p>`,
   buttonText: 'Continue'
 });
 
@@ -120,8 +121,7 @@ const instructions_practice_compatible_2 = magpieViews.view_generator("instructi
          <strong>small</strong> square.
          <br />
          <br />
-         Because this reversal of the keys is a bit confusing, we
-         will practice this new setting first!
+         Due to this reversal of the keys, we will practice this new setting first!
          `,
   buttonText: 'go to practice trials'
 });
@@ -147,8 +147,7 @@ const instructions_practice_incompatible_2 = magpieViews.view_generator("instruc
          <strong>small</strong> square.
          <br />
          <br />
-         Because this reversal of the keys is a bit confusing, we
-         will practice this new setting first!
+         Due to this reversal of the keys, we will practice this new setting first!
          `,
   buttonText: 'go to practice trials'
 });
@@ -191,8 +190,7 @@ const instructions_break = magpieViews.view_generator("instructions", {
   title: 'A little break',
   text: `Great, the first half of the experiment is done.
          <br />
-         Grab yourself a glass of water, take some deep breaths or do some
-         push-ups.
+         If you want to, you can take a short break now.
          <br />
          <br />
          If you are ready, please continue with the instructions for the second
@@ -208,7 +206,7 @@ const post_test = magpieViews.view_generator("post_test", {
   trials: 1,
   name: 'post_test',
   title: 'Additional information',
-  text: 'Answering the following questions is optional, but your answers will help us analyze our results.'
+  text: 'Answering the following questions is optional, but your answers will help us analyze our results.',
 
   // You can change much of what appears here, e.g., to present it in a different language, as follows:
   // buttonText: 'Weiter',
@@ -217,10 +215,10 @@ const post_test = magpieViews.view_generator("post_test", {
   // gender_male: 'männlich',
   // gender_female: 'weiblich',
   // gender_other: 'divers',
-  // edu_question: 'Höchster Bildungsabschluss',
-  // edu_graduated_high_school: 'Abitur',
-  // edu_graduated_college: 'Hochschulabschluss',
-  // edu_higher_degree: 'Universitärer Abschluss',
+   edu_question: '<span style="color:firebrick; font-weight: bold;">Dominant hand</span>',
+   edu_graduated_high_school: 'left',
+   edu_graduated_college: 'right',
+   edu_higher_degree: 'I am able to use both hands equally well.',
   // languages_question: 'Muttersprache',
   // languages_more: '(in der Regel die Sprache, die Sie als Kind zu Hause gesprochen haben)',
   // comments_question: 'Weitere Kommentare'
@@ -256,14 +254,6 @@ const thanks = magpieViews.view_generator("thanks", {
 * All about the properties of trial views
 * https://magpie-ea.github.io/magpie-docs/01_designing_experiments/01_template_views/#trial-views
 */
-
-const forced_choice_left_right = magpieViews.view_generator("forced_choice", {
-  // This will use all trials specified in `data`, you can user a smaller value (for testing), but not a larger value
-  trials: 1,
-  // name should be identical to the variable name
-  name: 'forced_choice_left_right',
-  data: left_right.forced_choice,
-});
 
 // Practice function for the compatible trials
 const practice_compatible_1 = custom_views.keypress_rotation({

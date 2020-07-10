@@ -1,12 +1,12 @@
 // In this file you initialize and configure your experiment using magpieInit
 
 // Random selection of
-const coin = _.sample(["head", "tail"]);
+const mapping = _.sample(["compatible", "incompatible"]);
 
 // head = compatible first
-if (coin == "head") {
+if (mapping == "compatible") {
 
-$("document").ready(function() {
+  $("document").ready(function() {
     // prevent scrolling when space is pressed
     window.onkeydown = function(e) {
         if (e.keyCode === 32 && e.target === document.body) {
@@ -25,7 +25,6 @@ $("document").ready(function() {
             // Basic intro and instructions, independent of compatibility
 
             intro,
-		      	forced_choice_left_right,
             instructions_general,
 
             // Start with compatible trials
@@ -101,7 +100,6 @@ else {
             // Basic intro and instructions, independent of compatibility
 
             intro,
-		        forced_choice_left_right,
             instructions_general,
 
             // Start with incompatible trials

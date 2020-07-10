@@ -91,6 +91,10 @@ custom_views.keypress_rotation = function(config) {
 
                     const trial_data = {
                         trial_type: config.trial_type,
+						condition: config.condition,
+						order: config.order,
+						left: config.left, 
+						right: config.right,
                         trial_number: CT + 1,
                         key_pressed: keyPressed,
                         correctness: correctness,

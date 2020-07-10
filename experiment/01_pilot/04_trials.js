@@ -19,7 +19,7 @@ const trial_data_10 = {
 		{
 	  	picture: "../materials/small-stimulus.png",
 	  	expected: 'small'
-  	},
+		},
 		{
 	  	picture: "../materials/large-stimulus.png",
 	  	expected: 'big'

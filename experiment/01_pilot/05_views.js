@@ -23,14 +23,7 @@ const intro = magpieViews.view_generator("intro", {
   trials: 1,
   name: 'intro',
   // If you use JavaScripts Template String `I am a Template String`, you can use HTML <></> and javascript ${} inside
-  text: `Thank you for joining this great experiment.
-         <br />
-         <br />
-         Before you can start the experiment, please state whether you are
-         left-handed or right-handed.
-         <br />
-         <br />
-         Click on the 'Continue'-Button below to state your answer.`,
+  text: `Thank you for joining this great experiment. By participating you are doing humanity a great favor.`,
   buttonText: 'Continue'
 });
 
@@ -206,7 +199,7 @@ const post_test = magpieViews.view_generator("post_test", {
   trials: 1,
   name: 'post_test',
   title: 'Additional information',
-  text: 'Answering the following questions is optional, but your answers will help us analyze our results.',
+  text: 'You are almost done! As a last step please answer the following questions.',
 
   // You can change much of what appears here, e.g., to present it in a different language, as follows:
   // buttonText: 'Weiter',
@@ -218,7 +211,7 @@ const post_test = magpieViews.view_generator("post_test", {
    edu_question: '<span style="color:firebrick; font-weight: bold;">Dominant hand</span>',
    edu_graduated_high_school: 'left',
    edu_graduated_college: 'right',
-   edu_higher_degree: 'I am able to use both hands equally well.',
+   edu_higher_degree: 'I am able to use both hands equally well',
   // languages_question: 'Muttersprache',
   // languages_more: '(in der Regel die Sprache, die Sie als Kind zu Hause gesprochen haben)',
   // comments_question: 'Weitere Kommentare'

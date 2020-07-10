@@ -1,12 +1,12 @@
 // In this file you initialize and configure your experiment using magpieInit
 
 // Random selection of
-const compatibility = _.sample(["compatible", "incompatible"]);
+const mapping = _.sample(["compatible", "incompatible"]);
 
 // head = compatible first
-if (compatibility == "compatible") {
+if (mapping == "compatible") {
 
-$("document").ready(function() {
+  $("document").ready(function() {
     // prevent scrolling when space is pressed
     window.onkeydown = function(e) {
         if (e.keyCode === 32 && e.target === document.body) {

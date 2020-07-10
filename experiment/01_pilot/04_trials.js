@@ -14,19 +14,6 @@ const count_time = function (data, next) {
 };
 
 
-const left_right = {
-	forced_choice: [
-		{
-			question: "Are you <strong>left-handed</strong> or <strong>right-handed</strong>?",
-			picture: "../materials/hands_unsplashed.jpg",
-			option1: 'left-handed',
-			option2: 'right-handed',
-			correct: 'right-handed'
-		}
-	]
-}
-
-
 const trial_data_10 = {
 	key_press: [
 		{

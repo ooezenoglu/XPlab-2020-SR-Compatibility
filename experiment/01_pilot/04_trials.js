@@ -17,43 +17,43 @@ const count_time = function (data, next) {
 const trial_data_10 = {
 	key_press: [
 		{
-	  	picture: "../materials/small-stimulus.png",
+	  	picture: "materials/small-stimulus.png",
 	  	expected: 'small'
 		},
 		{
-	  	picture: "../materials/large-stimulus.png",
+	  	picture: "materials/large-stimulus.png",
 	  	expected: 'big'
 		},
 		{
-	  	picture: "../materials/small-stimulus.png",
+	  	picture: "materials/small-stimulus.png",
 	  	expected: 'small'
   	},
 		{
-	  	picture: "../materials/large-stimulus.png",
+	  	picture: "materials/large-stimulus.png",
 	  	expected: 'big'
 		},
 		{
-	  	picture: "../materials/small-stimulus.png",
+	  	picture: "materials/small-stimulus.png",
 	  	expected: 'small'
   	},
 		{
-	  	picture: "../materials/large-stimulus.png",
+	  	picture: "materials/large-stimulus.png",
 	  	expected: 'big'
 		},
 		{
-	  	picture: "../materials/small-stimulus.png",
+	  	picture: "materials/small-stimulus.png",
 	  	expected: 'small'
   	},
 		{
-	  	picture: "../materials/large-stimulus.png",
+	  	picture: "materials/large-stimulus.png",
 	  	expected: 'big'
 		},
 		{
-	  	picture: "../materials/small-stimulus.png",
+	  	picture: "materials/small-stimulus.png",
 	  	expected: 'small'
   	},
 		{
-	  	picture: "../materials/large-stimulus.png",
+	  	picture: "materials/large-stimulus.png",
 	  	expected: 'big'
 		}
 	]
@@ -63,83 +63,83 @@ const trial_data_10 = {
 const trial_data_20 = {
 	key_press: [
 		{
-	  	picture: "../materials/small-stimulus.png",
+	  	picture: "materials/small-stimulus.png",
 	  	expected: 'small'
   	},
 		{
-	  	picture: "../materials/large-stimulus.png",
+	  	picture: "materials/large-stimulus.png",
 	  	expected: 'big'
 		},
 		{
-	  	picture: "../materials/small-stimulus.png",
+	  	picture: "materials/small-stimulus.png",
 	  	expected: 'small'
   	},
 		{
-	  	picture: "../materials/large-stimulus.png",
+	  	picture: "materials/large-stimulus.png",
 	  	expected: 'big'
 		},
 		{
-	  	picture: "../materials/small-stimulus.png",
+	  	picture: "materials/small-stimulus.png",
 	  	expected: 'small'
   	},
 		{
-	  	picture: "../materials/large-stimulus.png",
+	  	picture: "materials/large-stimulus.png",
 	  	expected: 'big'
 		},
 		{
-	  	picture: "../materials/small-stimulus.png",
+	  	picture: "materials/small-stimulus.png",
 	  	expected: 'small'
   	},
 		{
-	  	picture: "../materials/large-stimulus.png",
+	  	picture: "materials/large-stimulus.png",
 	  	expected: 'big'
 		},
 		{
-	  	picture: "../materials/small-stimulus.png",
+	  	picture: "materials/small-stimulus.png",
 	  	expected: 'small'
   	},
 		{
-	  	picture: "../materials/large-stimulus.png",
+	  	picture: "materials/large-stimulus.png",
 	  	expected: 'big'
 		},
     {
-	  	picture: "../materials/small-stimulus.png",
+	  	picture: "materials/small-stimulus.png",
 	  	expected: 'small'
   	},
 		{
-	  	picture: "../materials/large-stimulus.png",
+	  	picture: "materials/large-stimulus.png",
 	  	expected: 'big'
 		},
 		{
-	  	picture: "../materials/small-stimulus.png",
+	  	picture: "materials/small-stimulus.png",
 	  	expected: 'small'
   	},
 		{
-	  	picture: "../materials/large-stimulus.png",
+	  	picture: "materials/large-stimulus.png",
 	  	expected: 'big'
 		},
 		{
-	  	picture: "../materials/small-stimulus.png",
+	  	picture: "materials/small-stimulus.png",
 	  	expected: 'small'
   	},
 		{
-	  	picture: "../materials/large-stimulus.png",
+	  	picture: "materials/large-stimulus.png",
 	  	expected: 'big'
 		},
 		{
-	  	picture: "../materials/small-stimulus.png",
+	  	picture: "materials/small-stimulus.png",
 	  	expected: 'small'
   	},
 		{
-	  	picture: "../materials/large-stimulus.png",
+	  	picture: "materials/large-stimulus.png",
 	  	expected: 'big'
 		},
 		{
-	  	picture: "../materials/small-stimulus.png",
+	  	picture: "materials/small-stimulus.png",
 	  	expected: 'small'
   	},
 		{
-	  	picture: "../materials/large-stimulus.png",
+	  	picture: "materials/large-stimulus.png",
 	  	expected: 'big'
 		}
 	]
@@ -149,243 +149,243 @@ const trial_data_20 = {
 const trial_data_60 = {
 	key_press: [
 		{
-	  	picture: "../materials/small-stimulus.png",
+	  	picture: "materials/small-stimulus.png",
 	  	expected: 'small'
   	},
 		{
-	  	picture: "../materials/large-stimulus.png",
+	  	picture: "materials/large-stimulus.png",
 	  	expected: 'big'
 		},
 		{
-	  	picture: "../materials/small-stimulus.png",
+	  	picture: "materials/small-stimulus.png",
 	  	expected: 'small'
   	},
 		{
-	  	picture: "../materials/large-stimulus.png",
+	  	picture: "materials/large-stimulus.png",
 	  	expected: 'big'
 		},
 		{
-	  	picture: "../materials/small-stimulus.png",
+	  	picture: "materials/small-stimulus.png",
 	  	expected: 'small'
   	},
 		{
-	  	picture: "../materials/large-stimulus.png",
+	  	picture: "materials/large-stimulus.png",
 	  	expected: 'big'
 		},
 		{
-	  	picture: "../materials/small-stimulus.png",
+	  	picture: "materials/small-stimulus.png",
 	  	expected: 'small'
   	},
 		{
-	  	picture: "../materials/large-stimulus.png",
+	  	picture: "materials/large-stimulus.png",
 	  	expected: 'big'
 		},
 		{
-	  	picture: "../materials/small-stimulus.png",
+	  	picture: "materials/small-stimulus.png",
 	  	expected: 'small'
   	},
 		{
-	  	picture: "../materials/large-stimulus.png",
-	  	expected: 'big'
-		},
-    {
-	  	picture: "../materials/small-stimulus.png",
-	  	expected: 'small'
-  	},
-		{
-	  	picture: "../materials/large-stimulus.png",
-	  	expected: 'big'
-		},
-		{
-	  	picture: "../materials/small-stimulus.png",
-	  	expected: 'small'
-  	},
-		{
-	  	picture: "../materials/large-stimulus.png",
-	  	expected: 'big'
-		},
-		{
-	  	picture: "../materials/small-stimulus.png",
-	  	expected: 'small'
-  	},
-		{
-	  	picture: "../materials/large-stimulus.png",
-	  	expected: 'big'
-		},
-		{
-	  	picture: "../materials/small-stimulus.png",
-	  	expected: 'small'
-  	},
-		{
-	  	picture: "../materials/large-stimulus.png",
-	  	expected: 'big'
-		},
-		{
-	  	picture: "../materials/small-stimulus.png",
-	  	expected: 'small'
-  	},
-		{
-	  	picture: "../materials/large-stimulus.png",
+	  	picture: "materials/large-stimulus.png",
 	  	expected: 'big'
 		},
     {
-	  	picture: "../materials/small-stimulus.png",
+	  	picture: "materials/small-stimulus.png",
 	  	expected: 'small'
   	},
 		{
-	  	picture: "../materials/large-stimulus.png",
+	  	picture: "materials/large-stimulus.png",
 	  	expected: 'big'
 		},
 		{
-	  	picture: "../materials/small-stimulus.png",
+	  	picture: "materials/small-stimulus.png",
 	  	expected: 'small'
   	},
 		{
-	  	picture: "../materials/large-stimulus.png",
+	  	picture: "materials/large-stimulus.png",
 	  	expected: 'big'
 		},
 		{
-	  	picture: "../materials/small-stimulus.png",
+	  	picture: "materials/small-stimulus.png",
 	  	expected: 'small'
   	},
 		{
-	  	picture: "../materials/large-stimulus.png",
+	  	picture: "materials/large-stimulus.png",
 	  	expected: 'big'
 		},
 		{
-	  	picture: "../materials/small-stimulus.png",
+	  	picture: "materials/small-stimulus.png",
 	  	expected: 'small'
   	},
 		{
-	  	picture: "../materials/large-stimulus.png",
+	  	picture: "materials/large-stimulus.png",
 	  	expected: 'big'
 		},
 		{
-	  	picture: "../materials/small-stimulus.png",
+	  	picture: "materials/small-stimulus.png",
 	  	expected: 'small'
   	},
 		{
-	  	picture: "../materials/large-stimulus.png",
-	  	expected: 'big'
-		},
-    {
-	  	picture: "../materials/small-stimulus.png",
-	  	expected: 'small'
-  	},
-		{
-	  	picture: "../materials/large-stimulus.png",
-	  	expected: 'big'
-		},
-		{
-	  	picture: "../materials/small-stimulus.png",
-	  	expected: 'small'
-  	},
-		{
-	  	picture: "../materials/large-stimulus.png",
-	  	expected: 'big'
-		},
-		{
-	  	picture: "../materials/small-stimulus.png",
-	  	expected: 'small'
-  	},
-		{
-	  	picture: "../materials/large-stimulus.png",
-	  	expected: 'big'
-		},
-		{
-	  	picture: "../materials/small-stimulus.png",
-	  	expected: 'small'
-  	},
-		{
-	  	picture: "../materials/large-stimulus.png",
-	  	expected: 'big'
-		},
-		{
-	  	picture: "../materials/small-stimulus.png",
-	  	expected: 'small'
-  	},
-		{
-	  	picture: "../materials/large-stimulus.png",
+	  	picture: "materials/large-stimulus.png",
 	  	expected: 'big'
 		},
     {
-	  	picture: "../materials/small-stimulus.png",
+	  	picture: "materials/small-stimulus.png",
 	  	expected: 'small'
   	},
 		{
-	  	picture: "../materials/large-stimulus.png",
+	  	picture: "materials/large-stimulus.png",
 	  	expected: 'big'
 		},
 		{
-	  	picture: "../materials/small-stimulus.png",
+	  	picture: "materials/small-stimulus.png",
 	  	expected: 'small'
   	},
 		{
-	  	picture: "../materials/large-stimulus.png",
+	  	picture: "materials/large-stimulus.png",
 	  	expected: 'big'
 		},
 		{
-	  	picture: "../materials/small-stimulus.png",
+	  	picture: "materials/small-stimulus.png",
 	  	expected: 'small'
   	},
 		{
-	  	picture: "../materials/large-stimulus.png",
+	  	picture: "materials/large-stimulus.png",
 	  	expected: 'big'
 		},
 		{
-	  	picture: "../materials/small-stimulus.png",
+	  	picture: "materials/small-stimulus.png",
 	  	expected: 'small'
   	},
 		{
-	  	picture: "../materials/large-stimulus.png",
+	  	picture: "materials/large-stimulus.png",
 	  	expected: 'big'
 		},
 		{
-	  	picture: "../materials/small-stimulus.png",
+	  	picture: "materials/small-stimulus.png",
 	  	expected: 'small'
   	},
 		{
-	  	picture: "../materials/large-stimulus.png",
+	  	picture: "materials/large-stimulus.png",
 	  	expected: 'big'
 		},
     {
-	  	picture: "../materials/small-stimulus.png",
+	  	picture: "materials/small-stimulus.png",
 	  	expected: 'small'
   	},
 		{
-	  	picture: "../materials/large-stimulus.png",
+	  	picture: "materials/large-stimulus.png",
 	  	expected: 'big'
 		},
 		{
-	  	picture: "../materials/small-stimulus.png",
+	  	picture: "materials/small-stimulus.png",
 	  	expected: 'small'
   	},
 		{
-	  	picture: "../materials/large-stimulus.png",
+	  	picture: "materials/large-stimulus.png",
 	  	expected: 'big'
 		},
 		{
-	  	picture: "../materials/small-stimulus.png",
+	  	picture: "materials/small-stimulus.png",
 	  	expected: 'small'
   	},
 		{
-	  	picture: "../materials/large-stimulus.png",
+	  	picture: "materials/large-stimulus.png",
 	  	expected: 'big'
 		},
 		{
-	  	picture: "../materials/small-stimulus.png",
+	  	picture: "materials/small-stimulus.png",
 	  	expected: 'small'
   	},
 		{
-	  	picture: "../materials/large-stimulus.png",
+	  	picture: "materials/large-stimulus.png",
 	  	expected: 'big'
 		},
 		{
-	  	picture: "../materials/small-stimulus.png",
+	  	picture: "materials/small-stimulus.png",
 	  	expected: 'small'
   	},
 		{
-	  	picture: "../materials/large-stimulus.png",
+	  	picture: "materials/large-stimulus.png",
+	  	expected: 'big'
+		},
+    {
+	  	picture: "materials/small-stimulus.png",
+	  	expected: 'small'
+  	},
+		{
+	  	picture: "materials/large-stimulus.png",
+	  	expected: 'big'
+		},
+		{
+	  	picture: "materials/small-stimulus.png",
+	  	expected: 'small'
+  	},
+		{
+	  	picture: "materials/large-stimulus.png",
+	  	expected: 'big'
+		},
+		{
+	  	picture: "materials/small-stimulus.png",
+	  	expected: 'small'
+  	},
+		{
+	  	picture: "materials/large-stimulus.png",
+	  	expected: 'big'
+		},
+		{
+	  	picture: "materials/small-stimulus.png",
+	  	expected: 'small'
+  	},
+		{
+	  	picture: "materials/large-stimulus.png",
+	  	expected: 'big'
+		},
+		{
+	  	picture: "materials/small-stimulus.png",
+	  	expected: 'small'
+  	},
+		{
+	  	picture: "materials/large-stimulus.png",
+	  	expected: 'big'
+		},
+    {
+	  	picture: "materials/small-stimulus.png",
+	  	expected: 'small'
+  	},
+		{
+	  	picture: "materials/large-stimulus.png",
+	  	expected: 'big'
+		},
+		{
+	  	picture: "materials/small-stimulus.png",
+	  	expected: 'small'
+  	},
+		{
+	  	picture: "materials/large-stimulus.png",
+	  	expected: 'big'
+		},
+		{
+	  	picture: "materials/small-stimulus.png",
+	  	expected: 'small'
+  	},
+		{
+	  	picture: "materials/large-stimulus.png",
+	  	expected: 'big'
+		},
+		{
+	  	picture: "materials/small-stimulus.png",
+	  	expected: 'small'
+  	},
+		{
+	  	picture: "materials/large-stimulus.png",
+	  	expected: 'big'
+		},
+		{
+	  	picture: "materials/small-stimulus.png",
+	  	expected: 'small'
+  	},
+		{
+	  	picture: "materials/large-stimulus.png",
 	  	expected: 'big'
 		}
 	]

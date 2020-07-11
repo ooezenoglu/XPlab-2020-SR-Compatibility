@@ -37,7 +37,7 @@ const instructions_general = magpieViews.view_generator("instructions", {
   name: 'instructions_general',
   title: 'Instructions',
   // Apparently text size/font and alignment changes if sentences appear after the image?
-  text: `In the following experiment, you will see squares in <strong>one of two sizes</strong> in the center of you screen: <strong>small</strong> or <strong>big</strong>.
+  text: `In the following experiment, you will see squares in <strong>one of two sizes</strong> in the center of your screen: <strong>small</strong> or <strong>big</strong>.
          The picture below displays both square types.
 		     <br />
          <br />

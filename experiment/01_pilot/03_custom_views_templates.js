@@ -63,7 +63,15 @@ custom_views.keypress_rotation = function(config) {
 					  clearTimeout(window.timeout[0]);
 					  window.timeout.shift();
 
-                    if (
+
+
+					if (RT > 2500) {
+						correctness = "timeout";
+						$(".magpie-view-stimulus").addClass("magpie-invisible");
+						$('#feedback').text('');
+					}
+					
+                    else if (
                         config.data[CT].expected ===
                             config[keyPressed]
                     ) {
@@ -71,14 +79,7 @@ custom_views.keypress_rotation = function(config) {
                         // show blank screen
                         $(".magpie-view-stimulus").addClass("magpie-invisible");
                         $('#feedback').text('');
-
                     }
-
-					else if (RT > 2500) {
-						correctness = "timeout";
-						$(".magpie-view-stimulus").addClass("magpie-invisible");
-						$('#feedback').text('');
-					}
 
 					else {
                         correctness = "incorrect";

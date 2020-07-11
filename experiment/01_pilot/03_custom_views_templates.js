@@ -64,8 +64,8 @@ custom_views.keypress_rotation = function(config) {
 					  window.timeout.shift();
 
 
-
-					if (RT > 2500) {
+					// if RT > 2000ms there is timeout screen and the variable is changed to timeout
+					if (RT > 2000) {
 						correctness = "timeout";
 						$(".magpie-view-stimulus").addClass("magpie-invisible");
 						$('#feedback').text('');

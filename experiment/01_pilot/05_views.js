@@ -376,7 +376,7 @@ const main_compatible_2 = custom_views.keypress_rotation({
 const main_incompatible_1 = custom_views.keypress_rotation({
   trials: 60,
   name: 'main_incompatible_1',
-  trial_type: 'main_',
+  trial_type: 'main',
   condition: 'incompatible',
   order: 'compatible_second',
   fix_duration: 1000,

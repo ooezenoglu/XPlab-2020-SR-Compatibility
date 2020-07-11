@@ -68,7 +68,7 @@ if (mapping == "compatible") {
 				        main_compatible_1.name,
                 main_compatible_2.name,
 				        main_incompatible_1.name,
-                main_incompatible_1.name
+                main_incompatible_2.name
             ],
              // Possible styles are "default", "separate" and "chunks"
             style: "separate",
@@ -142,8 +142,8 @@ else {
 				        practice_incompatible_2.name,
 				        main_compatible_1.name,
                 main_compatible_2.name,
-				        main_incompatible_2.name,
-                main_incompatible_1.name
+				        main_incompatible_1.name,
+                main_incompatible_2.name
             ],
              // Possible styles are "default", "separate" and "chunks"
             style: "separate",

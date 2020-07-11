@@ -8,7 +8,7 @@ const count_time = function (data, next) {
   // add the timeout to the timeoutarray
   window.timeout.push(setTimeout(function () {
     $(".magpie-view-stimulus").addClass("magpie-invisible");
-      $('#feedback').text('Please answer more quickly!');
+      $('#feedback').text(`Please answer more quickly! (Press 'q' or 'p' to continue)`);
   }, 2000));
   next();
 };

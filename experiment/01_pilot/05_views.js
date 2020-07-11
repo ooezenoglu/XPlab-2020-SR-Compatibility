@@ -23,7 +23,11 @@ const intro = magpieViews.view_generator("intro", {
   trials: 1,
   name: 'intro',
   // If you use JavaScripts Template String `I am a Template String`, you can use HTML <></> and javascript ${} inside
-  text: `Thank you for joining this great experiment. By participating you are doing humanity a great favor.`,
+  text: `Thank you for participating in this experiment!
+         <br />
+         <br />
+         Please make sure that you are on a <strong>laptop or desktop computer</strong>.
+         If you are <strong>not</strong>, please <strong>close this window now</strong> and open the link again if you are sitting in front of a laptop or desktop computer. `,
   buttonText: 'Continue'
 });
 
@@ -37,7 +41,7 @@ const instructions_general = magpieViews.view_generator("instructions", {
          The picture below displays both square types.
 		     <br />
          <br />
-		     In each trial, you will either see the square in panel A or in panel B.
+		     In each trial, you will either see square A or square B.
 		     Your task is to judge whether the square you see is the <strong>smaller</strong> or the <strong>bigger</strong> one.
          <br />
          <br />
@@ -199,7 +203,7 @@ const post_test = magpieViews.view_generator("post_test", {
   trials: 1,
   name: 'post_test',
   title: 'Additional information',
-  text: 'You are almost done! As a last step please answer the following questions, especially the one about your dominant hand.',
+  text: 'You are almost done! Answering the following questions is optional. However, you are <strong>highly encouraged to indicate your dominant hand (highlighted question).</strong>',
 
   // You can change much of what appears here, e.g., to present it in a different language, as follows:
   // buttonText: 'Weiter',
@@ -208,7 +212,7 @@ const post_test = magpieViews.view_generator("post_test", {
   // gender_male: 'männlich',
   // gender_female: 'weiblich',
   // gender_other: 'divers',
-   edu_question: '<span style="color:firebrick; font-weight: bold;">Dominant hand</span>',
+   edu_question: '<span style="background-color:#FFFF00">Dominant hand</span>', 
    edu_graduated_high_school: 'left',
    edu_graduated_college: 'right',
    edu_higher_degree: 'I am able to use both hands equally well',
@@ -352,7 +356,7 @@ const main_compatible_1 = custom_views.keypress_rotation({
 const main_compatible_2 = custom_views.keypress_rotation({
   trials: 60,
   name: 'main_compatible_2',
-  trial_type: 'main', 
+  trial_type: 'main',
   condition: 'compatible',
   order: 'compatible_second',
   fix_duration: 1000,
@@ -392,7 +396,7 @@ const main_incompatible_1 = custom_views.keypress_rotation({
 const main_incompatible_2 = custom_views.keypress_rotation({
   trials: 60,
   name: 'main_incompatible_2',
-  trial_type: 'main', 
+  trial_type: 'main',
     condition: 'incompatible',
 	order: 'compatible_first',
   fix_duration: 1000,

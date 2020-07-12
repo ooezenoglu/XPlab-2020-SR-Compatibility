@@ -4,11 +4,11 @@ This repository contains a replication study of experiment 1 by Wühr & Seegelke
 
 Wühr, P., & Seegelke, C. (2018). Compatibility between Physical Stimulus Size and Left-right Responses: Small is Left and Large is Right. *Journal of Cognition*, 1(1): 17, pp. 1-11. DOI: http://doi.org/10.5334/joc.19
 
-We created the stimuli by ourselves. They are available [here](https://github.com/ooezenoglu/XPlab-2020-SR-Compatibility/tree/master/experiment/materials)
+We created the stimuli by ourselves. They are available [here](https://github.com/ooezenoglu/XPlab-2020-SR-Compatibility/tree/master/experiment/02_main/materials)
 
 ## Experiment
 
-The study is a 2 (mapping: compatible, incompatible) x 2 (correct response location: left, right) within-subjects design.
+The study is a 2 (S-R mapping: compatible, incompatible) x 2 (correct response location: left, right) within-subjects design.
 
 In each trial, participants either see a small square (2 x 2 cm) or a large square (4 x 4 cm) at screen center. Their task is to judge whether the square is the smaller or the larger one (forced binary choice).
 In the *compatible* mapping condition, participants should respond to the small square by pressing the "q" key, and should respond to the large square by pressing the "p" key. 

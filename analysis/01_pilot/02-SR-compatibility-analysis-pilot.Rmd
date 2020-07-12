@@ -1,0 +1,495 @@
+---
+title: "S-R Compatibility Task - Analysis"
+author: 
+    name: Milan Ewert, Tim Bax, Niklas Bub, Özge Özenoglu
+    email: mewert@uos.de, tbax@uos.de, nbub@uos.de, ooezenoglu@uos.de
+date: "July 12, 2020"
+output: 
+  html_document:
+    toc: true
+    toc_depth: 3
+    highlight: tango
+---
+
+# Preliminaries
+
+## Load libraries
+
+```{r echo = TRUE, message=FALSE, warning=FALSE}
+
+library(tidyverse)
+#library(xlsx)
+library(brms)
+library(tidybayes)
+library(bayesplot)
+# devtools::install_github('michael-franke/bayes_mixed_regression_tutorial/faintr',build_vignettes = TRUE)
+library(faintr)
+
+options(mc.cores = parallel::detectCores())
+
+color_palette = c("#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7", "#000000")
+
+scale_colour_discrete <- function(...) {
+  scale_colour_manual(..., values = color_palette)
+}
+
+scale_fill_discrete <- function(...) {
+   scale_fill_manual(..., values = color_palette)
+} 
+
+```
+
+## Load raw data 
+
+```{r}
+
+raw_data <- read.csv('https://raw.githubusercontent.com/ooezenoglu/XPlab-2020-SR-Compatibility/master/data/01_pilot/01-raw-data-pilot.csv')
+
+glimpse(raw_data)
+```
+
+# Data Wrangling
+
+```{r}
+
+d <- raw_data %>% 
+  # rename column 'education' to 'handedness'
+  rename(handedness = education) %>% 
+  # deselect columns not needed for analysis 
+  select(-picture, -startDate, -startTime, -endTime, -timeSpent, -comments, -gender, -languages)
+```
+
+We exclude every individual trial with reaction times below 100 ms and above 1500 ms:
+
+```{r}
+
+d <- d %>% 
+  mutate(
+    outlier = case_when(RT < 100 ~ TRUE,
+                        RT > 1500 ~ TRUE,
+                        TRUE ~ FALSE)
+  )
+```
+
+There are `r d %>% filter(outlier==TRUE) %>% count()` outliers to be excluded.
+
+```{r}
+
+d <- d %>% 
+    filter(outlier == FALSE)
+```
+
+We exclude all data from practice trials:
+
+```{r}
+
+d <- d %>% 
+  filter(trial_type == "main")
+```
+
+We only look at correct responses:
+
+```{r}
+
+d <- d %>% 
+  filter(correctness == "correct")
+```
+
+Given the variables `condition` and `expected`, we create a new variable `correct_response` that will serve as a covariate.
+
+```{r}
+
+d <- d %>% 
+mutate(
+  correct_response = ifelse(condition == "compatible" & expected == "big", "right", 
+                            ifelse(condition == "incompatible" & expected == "small", "right", "left"))
+)
+```
+
+```{r}
+
+head(d)
+```
+
+# Summary statistics
+
+```{r}
+
+d %>% pull(RT) %>% summary()
+```
+
+```{r message=FALSE}
+
+d_agg <- d %>% 
+  # look at each level of 'condition' (compatible, incompatible) and 'correct_response' (left, right)
+  group_by(condition, correct_response) %>% 
+  # get the mean and standard deviation of the reaction time
+  summarize(mean_RT = mean(RT),
+            sd_RT = sd(RT))
+
+d_agg
+```
+
+```{r message=FALSE}
+
+d_agg_participant <- d %>% 
+  # look at each level of 'condition' (compatible, incompatible) and 'correct_response' (left, right) for every participant
+  group_by(condition, correct_response, submission_id) %>% 
+  # get the mean and standard deviation of the reaction time
+  summarize(mean_RT = mean(RT),
+            sd_RT = sd(RT))
+
+head(d_agg_participant)
+```
+
+```{r fig.align='center'}
+
+ggplot(d_agg, aes(x = correct_response, y = mean_RT, color = condition)) + 
+  geom_point(size = 2) +
+  geom_line(aes(group = condition)) +
+  xlab("\ncorrect response location") +
+  ylab("reaction time in ms\n") +
+  theme_classic()
+```
+
+```{r fig.align='center'}
+
+ggplot(d_agg, aes(x = correct_response, y = mean_RT, color = condition)) + 
+  geom_point(aes(fill = condition), size = 4, position = position_dodge(width = 0.5)) +
+  geom_point(data = d_agg_participant, aes(x = correct_response, y= mean_RT), size = 2, alpha = 0.2, position = position_dodge(width = 0.5)) +
+  xlab("\ncorrect response location") +
+  ylab("reaction time in ms\n") +
+  theme_classic()
+```
+
+# Random effects model
+
+We specify 'compatible' as default level for factor `condition`, and 'right' as default level for factor `correct_response`.
+
+```{r}
+
+d <- d %>% 
+    mutate(
+      # Treat predictor variables as unordered factors
+      condition = factor(condition, levels = c("compatible", "incompatible")),
+      correct_response = factor(correct_response, levels = c("right", "left"))
+  )
+
+head(d)
+```
+
+## Model specification
+
+To answer all of our research hypotheses, we fit one Bayesian hierarchical linear model with variate `RT` (reaction time), covariates `condition` and `correct_response`, and their two-way interaction. Furthermore, we specify by-participant random intercepts. We use the default (flat) priors of the `brms` package for the effect coefficients. 
+
+```{r warnings = FALSE, messages = FALSE, results = 'hide'}
+
+model_RE <- brm(
+  formula = RT ~ condition*correct_response + (condition*correct_response||submission_id),
+  data = d,
+  iter = 4000,
+  control = list(adapt_delta = 0.99, max_treedepth = 15),
+  seed = 525
+)
+```
+
+## Posterior estimates
+
+```{r}
+
+summary(model_RE)
+```
+
+```{r}
+
+prior_summary(model_RE)
+```
+
+```{r}
+
+parameter_values <- posterior_samples(model_RE) %>%
+  round(1) %>% 
+  select(b_Intercept, 
+         b_conditionincompatible,
+         b_correct_responseleft,
+         `b_conditionincompatible:correct_responseleft`) %>% 
+  pivot_longer(cols = everything(), names_to = "parameter", values_to = "value") %>% 
+  select(parameter, value)
+
+head(parameter_values)
+```
+
+```{r}
+
+parameter_summary <- model_RE %>%
+  spread_draws(b_Intercept, 
+               b_conditionincompatible,
+               b_correct_responseleft,
+               `b_conditionincompatible:correct_responseleft`) %>%
+  median_qi()
+
+
+mean_values <- parameter_summary %>%  
+  pivot_longer(cols = c(b_Intercept, b_conditionincompatible, b_correct_responseleft, 
+                        `b_conditionincompatible:correct_responseleft`), 
+               names_to = "parameter", 
+               values_to = "mean") %>% 
+  select(parameter, mean)
+
+
+lowerHDI <- parameter_summary %>% 
+  pivot_longer(cols = contains("lower"), 
+               names_to = "parameter_lower", 
+               values_to = "lower") %>% 
+  select(parameter_lower, lower)
+
+
+upperHDI <- parameter_summary %>% 
+  pivot_longer(cols = contains("upper"), 
+               names_to = "parameter_upper", 
+               values_to = "upper") %>% 
+  select(parameter_upper, upper)
+
+
+coefficients <- cbind(mean_values, lowerHDI, upperHDI) %>% 
+  select(-contains(c("_lower", "_upper")))
+
+
+coefficients
+```
+
+The following plot is inspired by a tutorial of Michael Franke and Timo Röttger (2019)^[Franke, M., & Roettger, T. B. (2019, July 13). Bayesian regression modeling (for factorial designs): A tutorial. https://doi.org/10.31234/osf.io/cdxv3].
+
+```{r fig.align='center'}
+
+new_labels <- c("b_Intercept" = "Intercept", 
+                "b_conditionincompatible" = "condition: incompatible", 
+                "b_correct_responseleft" = "correct response: left", 
+                "b_conditionincompatible:correct_responseleft" = "condition: incompatible x correct response: left")
+
+ggplot(data = parameter_values, mapping = aes(x = value)) +
+  geom_density(fill = "lightgrey") +
+  geom_vline(data = coefficients, mapping = aes(xintercept = mean), color = "firebrick", lty = "dashed") +
+  facet_wrap(.~parameter, scales = "free", labeller = labeller(parameter = new_labels))  +
+  geom_segment(data = coefficients, mapping = aes(x=lower,xend= upper,y=0,yend=0), size = 2, color = "firebrick") +
+  xlab("\nparameter values") +
+  ylab("density\n") +
+  theme_classic() +
+  theme(strip.background = element_blank())
+```
+
+```{r message=FALSE}
+
+# Extract the posterior estimates
+derived_posteriors <- model_RE %>%
+  spread_draws(b_Intercept, 
+               b_conditionincompatible,
+               b_correct_responseleft,
+               `b_conditionincompatible:correct_responseleft`) %>%
+  # Calculate posteriors for each individual level
+  mutate(Compatible_right = b_Intercept,
+         Compatible_left = b_Intercept + b_correct_responseleft,
+         Incompatible_right = b_Intercept + b_conditionincompatible,
+         Incompatible_left = b_Intercept + b_conditionincompatible + b_correct_responseleft + 
+                              `b_conditionincompatible:correct_responseleft`) %>% 
+  select(Compatible_right, Compatible_left, 
+         Incompatible_right, Incompatible_left) %>% 
+  gather(key = "parameter", value = "posterior") %>% 
+   mutate(correct_response = ifelse(parameter == "Compatible_right" | parameter == "Incompatible_right",
+                        "right", "left"),
+          condition = ifelse(parameter == "Compatible_right" | parameter == "Compatible_left",
+                        "compatible", "incompatible")) 
+
+# Summarize posterior means and 95% Credible Intervals for each combination of condition and correct_response
+posteriors_agg <- derived_posteriors %>% 
+  group_by(correct_response, condition) %>% 
+  summarise(`|95%` = HDInterval::hdi(posterior, credMass = 0.95)[1],
+            mean_posterior = mean(posterior),
+            `95%|` = HDInterval::hdi(posterior, credMass = 0.95)[2])
+
+posteriors_agg
+```
+
+```{r}
+
+# plot posterior estimates
+posteriors_agg %>% 
+ggplot(aes(x = correct_response, y = mean_posterior, color = condition)) +
+  geom_errorbar(aes(ymin = `|95%`, ymax = `95%|`),
+                width = 0.1) +
+  geom_line(aes(group = condition)) +
+  geom_point(size = 2) +
+  facet_wrap(.~condition) +
+  theme_classic() +
+  theme(strip.background = element_blank(), strip.text.x = element_blank()) +
+  xlab("\ncorrect response location") +
+  ylab("mean posterior\n")
+```
+
+# Hypothesis Testing
+
+## Hypothesis 1
+
+> Response times are faster in the compatible mapping condition than in the incompatible mapping condition.
+
+```{r}
+
+compare_groups(
+  model = model_RE,
+  higher = list("condition" = "compatible"),
+  lower = list("condition" = "incompatible")
+)
+```
+
+## Hypothesis 2
+
+> The compatible S-R mapping yields lower reaction times for right responses than for left responses.
+
+```{r}
+
+compare_groups(
+  model = model_RE,
+  higher = list(condition = "compatible", correct_response = "right"),
+  lower = list(condition = "compatible", correct_response = "left")
+)
+```
+
+## Hypothesis 3
+
+> The incompatible S-R mapping yields higher reaction times for right responses than for left responses.
+
+```{r}
+
+compare_groups(
+  model = model_RE,
+  higher = list(condition = "incompatible", correct_response = "left"),
+  lower = list(condition = "incompatible", correct_response = "right")
+)
+```
+
+# Exploratory Analysis
+
+```{r message=FALSE}
+
+d_agg_expl <- d %>% 
+  # look at each level of 'condition', 'correct_response' and 'handedness'
+  group_by(condition, correct_response, handedness) %>% 
+  # get the mean and standard deviation of the reaction time
+  summarize(mean_RT = mean(RT),
+            sd_RT = sd(RT))
+
+d_agg_expl
+```
+
+```{r message=FALSE}
+
+d_agg_participant_expl <- d %>% 
+  # look at each level of 'condition', 'correct_response' and 'handedness' for each participant
+  group_by(condition, correct_response, submission_id, handedness) %>% 
+  # get the mean and standard deviation of the reaction time
+  summarize(mean_RT = mean(RT),
+            sd_RT = sd(RT))
+
+head(d_agg_participant_expl)
+```
+
+```{r message=FALSE}
+
+handedness_table <- d %>% 
+  select(submission_id, handedness) %>% 
+  group_by(submission_id, handedness) %>% 
+  summarize()
+
+handedness_counts <- tibble(
+  handedness = c("right", "left", "both"), 
+  counts = c(sum(handedness_table$handedness=="right"), 
+             sum(handedness_table$handedness=="left"), 
+             sum(handedness_table$handedness=="both")))
+
+handedness_counts
+```
+
+```{r fig.align='center'}
+
+ggplot(d_agg_expl, aes(x = correct_response, y = mean_RT, color = condition)) + 
+  geom_point(size = 2) +
+  geom_line(aes(group = condition)) +
+  facet_wrap(.~handedness, labeller = labeller(handedness = c("left" = "left-handed", "right" = "right-handed"))) +
+  xlab("\ncorrect response location") +
+  ylab("reaction time in ms\n") +
+  theme_classic() +
+  theme(strip.background = element_blank(), strip.text = element_text(size = 11))
+```
+
+## Model Specification
+
+In case that there are left-handed participants, we fit a Bayesian hierarchical linear model with variate `RT` (reaction time), covariates `condition`, `correct_response`, `handedness`, as well as their three-way interaction. Furthermore, we specify by-participant random intercepts. We use the default (flat) priors of the `brms` package for the effect coefficients. 
+
+```{r warnings = FALSE, messages = FALSE, results = 'hide', eval=FALSE}
+
+model_RE_expl <- brm(
+  RT ~ condition * correct_response * handedness + (1||submission_id),
+  data = d,
+  iter = 4000,
+  control = list(adapt_delta = 0.99, max_treedepth = 15),
+  seed = 525
+)
+```
+
+##  Posterior estimates
+
+```{r, eval=FALSE}
+
+summary(model_RE_expl)
+```
+
+```{r eval=FALSE}
+
+prior_summary(model_RE_expl)
+```
+
+## Hypothesis Testing
+
+> In the compatible condition, left handers respond faster to left reponses than to right responses.
+
+```{r eval=FALSE}
+
+compare_groups(
+  model = model_RE_expl,
+  higher = list(condition = "compatible", correct_response = "left", handedness = "left"),
+  lower = list(condition = "compatible", Correct_response = "right", handedness = "left")
+)
+```
+
+> In the incompatible condition, left handers respond faster to right reponses than to left responses.
+
+```{r eval=FALSE}
+
+compare_groups(
+  model = model_RE_expl,
+  higher = list(condition = "incompatible", correct_response = "right", handedness = "left"),
+  lower = list(condition = "incompatible", correct_response = "left", handedness = "left")
+)
+```
+
+> In the compatible condition, right handers respond faster to right responses than to left responses.
+
+```{r eval=FALSE}
+
+compare_groups(
+  model = model_RE_expl,
+  higher = list(condition = "compatible", correct_response = "right", handedness = "right"),
+  lower = list(condition = "compatible", correct_response = "left", handedness = "right")
+)
+```
+
+> In the incompatible condition, right handers respond faster to left responses than to right responses.
+
+```{r eval=FALSE}
+
+compare_groups(
+  model = model_RE_expl,
+  higher = list(condition = "incompatible", correct_response = "left", handedness = "right"),
+  lower = list(condition = "incompatible", correct_response = "right", handedness = "right")
+)
+```

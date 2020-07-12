@@ -1,0 +1,250 @@
+---
+title: "S-R Compatibility Task - Model Comparison"
+author: 
+    name: Milan Ewert, Tim Bax, Niklas Bub, Özge Özenoglu
+    email: mewert@uos.de, tbax@uos.de, nbub@uos.de, ooezenoglu@uos.de
+date: "July 12, 2020"
+output: 
+  html_document:
+    toc: true
+    toc_depth: 3
+    highlight: tango
+---
+
+In this file, we will compare five models against each other by their posterior predictive densities using the Leave-One-Out Cross-Validation (LOO-CV) method. We justify the model used for analysis based on the outcome of the comparisons below. 
+
+# Preliminaries
+
+## Load libraries
+
+```{r echo = TRUE, message=FALSE, warning=FALSE}
+
+library(tidyverse)
+library(brms)
+
+options(mc.cores = parallel::detectCores())
+```
+
+## Load raw data 
+
+```{r}
+
+raw_data <- read.csv('https://raw.githubusercontent.com/ooezenoglu/XPlab-2020-SR-Compatibility/master/data/01_pilot/01-raw-data-pilot.csv')
+
+glimpse(raw_data)
+```
+
+# Data Wrangling
+
+```{r}
+
+d <- raw_data %>% 
+  # rename column 'education' to 'handedness'
+  rename(handedness = education) %>% 
+  # deselect columns not needed for analysis 
+  select(-picture, -startDate, -startTime, -endTime, -timeSpent, -comments, -gender, -languages)
+```
+
+We exclude every individual trial with reaction times below 100 ms and above 1500 ms:
+
+```{r}
+
+d <- d %>% 
+  mutate(
+    outlier = case_when(RT < 100 ~ TRUE,
+                        RT > 1500 ~ TRUE,
+                        TRUE ~ FALSE)
+  )
+```
+
+There are `r d %>% filter(outlier==TRUE) %>% count()` outliers to be excluded.
+
+```{r}
+
+d <- d %>% 
+    filter(outlier == FALSE)
+```
+
+We exclude all data from practice trials:
+
+```{r}
+
+d <- d %>% 
+  filter(trial_type == "main")
+```
+
+We only look at correct responses:
+
+```{r}
+
+d <- d %>% 
+  filter(correctness == "correct")
+```
+
+Given the variables `condition` and `expected`, we create a new variable `correct_response` that will serve as a covariate.
+
+```{r}
+
+d <- d %>% 
+mutate(
+  correct_response = ifelse(condition == "compatible" & expected == "big", "right", 
+                            ifelse(condition == "incompatible" & expected == "small", "right", "left"))
+)
+```
+
+```{r}
+
+head(d)
+```
+
+# Model Specifications
+
+We specify 'compatible' as default level for factor `condition`, and 'right' as default level for factor `correct_response`.
+
+```{r eval=FALSE}
+
+d <- d %>% 
+    mutate(
+      # Treat predictor variables as unordered factors
+      condition = factor(condition, levels = c("compatible", "incompatible")),
+      correct_response = factor(correct_response, levels = c("right", "left"))
+  )
+
+head(d)
+```
+
+## Model 1 (FE)
+
+Model 1 fits a Bayesian linear model with variate `RT` (reaction time) and covariates `condition` (compatible, incompatible) and `correct_response` (right, left). This model does not take an interaction into account.
+
+```{r warnings = FALSE, messages = FALSE, results = 'hide'}
+
+m1_noInteraction <- brm(
+  formula = RT ~ condition + correct_response,
+  data = d,
+  seed = 123
+)
+```
+
+```{r}
+
+summary(m1_noInteraction)
+```
+
+## Model 2 (FE)
+
+Model 2 fits a Bayesian linear model with variate `RT` (reaction time) and covariates `condition` (compatible, incompatible) and `correct_response` (right, left). This model takes an interaction between `condition` and `correct_response` into account.
+
+```{r warnings = FALSE, messages = FALSE, results = 'hide'}
+
+m2_Interaction <- brm(
+  formula = RT ~ condition * correct_response,
+  data = d,
+  seed = 123
+)
+```
+
+```{r}
+
+summary(m2_Interaction)
+```
+
+## Model 3 (RE)
+
+Model 3 fits a Bayesian hierarchical linear model with variate `RT` (reaction time) and covariates `condition` (compatible, incompatible) and `correct_response` (right, left). This model takes an interaction, as well as by-participant random intercepts into account.
+
+```{r warnings = FALSE, messages = FALSE, results = 'hide'}
+
+m3_Interaction_Random_Intercepts <- brm(
+  formula = RT ~ condition * correct_response + (1||submission_id),
+  data = d,
+  iter = 4000,
+  control = list(adapt_delta = 0.95),
+  seed = 123
+)
+```
+
+```{r}
+
+summary(m3_Interaction_Random_Intercepts)
+```
+
+## Model 4 (RE)
+
+Model 4 fits a Bayesian hierarchical linear model with variate `RT` (reaction time) and covariates `condition` (compatible, incompatible) and `correct_response` (right, left). This model takes an interaction, as well as by-participant random intercepts and slopes into account.
+
+```{r warnings = FALSE, messages = FALSE, results = 'hide'}
+
+m4_Interaction_Random_Intercepts_Slopes <- brm(
+  formula = RT ~ condition * correct_response + (condition*correct_response||submission_id),
+  data = d,
+  iter = 4000,
+  control = list(adapt_delta = 0.95),
+  seed = 123
+)
+```
+
+```{r}
+
+summary(m4_Interaction_Random_Intercepts_Slopes)
+```
+
+# Model Comparison
+
+In this section, we will compare models 1-4 against each other. Concretely, we will choose the model for analysis based on the "best" posterior predicitve distribution according to the LOO-CV method. We will rely on the `loo_compare` function of the `brms` package and calculate $p$-values using a $z$-score method.
+
+## Model 1 vs. Model 2
+
+```{r}
+
+FE_noInteraction <- loo(m1_noInteraction)
+FE_Interaction <- loo(m2_Interaction)
+
+loo_comp_FE <- loo_compare(list(simpler = FE_noInteraction, more_complex = FE_Interaction))
+loo_comp_FE
+```
+
+```{r}
+
+1 - pnorm(-loo_comp_FE[2,1], loo_comp_FE[2,2])
+```
+
+## Model 2 vs. Model 3
+
+```{r}
+
+RE_Intercepts <- loo(m3_Interaction_Random_Intercepts)
+
+loo_comp_FE_vs_RE <- loo_compare(list(simpler = FE_Interaction, more_complex = RE_Intercepts))
+loo_comp_FE_vs_RE
+```
+
+```{r}
+
+1 - pnorm(-loo_comp_FE_vs_RE[2,1], loo_comp_FE_vs_RE[2,2])
+```
+
+## Model 3 vs. Model 4
+
+```{r}
+
+RE_Intercepts_Slopes <- loo(m4_Interaction_Random_Intercepts_Slopes)
+
+loo_comp_RE <- loo_compare(list(simpler = RE_Intercepts, more_complex = RE_Intercepts_Slopes))
+loo_comp_RE
+```
+
+```{r}
+
+1 - pnorm(-loo_comp_RE[2,1], loo_comp_RE[2,2])
+```
+
+## Compare all models
+
+```{r}
+
+loo_compare(list(FE_noInteraction = FE_noInteraction, 
+                 FE_Interaction = FE_Interaction, 
+                 RE_Intercepts = RE_Intercepts, 
+                 RE_Intercepts_Slopes = RE_Intercepts_Slopes))
+```

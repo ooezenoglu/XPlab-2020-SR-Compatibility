@@ -27,16 +27,7 @@ const intro = magpieViews.view_generator("intro", {
          <br />
          <br />
          Please make sure that you are on a <strong>laptop or desktop computer</strong>.
-         If you are <strong>not</strong>, please <strong>close this window now</strong>
-         and open the link again if you are sitting in front of a laptop or desktop
-         computer.
-         <br />
-         <br />
-         The data you will provide here will be kept <strong>anonymous</strong> and only shared with
-         the researchers and the supervisor. Your participation in this experiment
-         is <strong>voluntary</strong>. You may quit at <strong>any moment</strong>. This experiment will take around
-         <strong>10 to 15 minutes</strong>.
-         `,
+         If you are <strong>not</strong>, please <strong>close this window now</strong> and open the link again if you are sitting in front of a laptop or desktop computer. `,
   buttonText: 'Continue'
 });
 
@@ -221,7 +212,7 @@ const post_test = magpieViews.view_generator("post_test", {
   // gender_male: 'männlich',
   // gender_female: 'weiblich',
   // gender_other: 'divers',
-   edu_question: '<span style="background-color:#FFFF00">Dominant hand</span>',
+   edu_question: '<span style="background-color:#FFFF00">Dominant hand</span>', 
    edu_graduated_high_school: 'left',
    edu_graduated_college: 'right',
    edu_higher_degree: 'I am able to use both hands equally well',

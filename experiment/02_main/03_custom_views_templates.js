@@ -1,24 +1,8 @@
-// In this file you can create your own custom view templates
-
-
-// A view template is a function that returns a view,
-// this functions gets some config (e.g. trial_data, name, etc.) information as input
-// A view is an object, that has a name, CT (the counter of how many times this view occurred in the experiment),
-// trials the maximum number of times this view is repeated
-// and a render function, the render function gets CT and the magpie-object as input
-// and has to call magpie.findNextView() eventually to proceed to the next view (or the next trial in this view),
-// if it is an trial view it also makes sense to call magpie.trial_data.push(trial_data) to save the trial information
-
-// Custom view template for intro question
-// Forcedd choice: Left-handed vs right-handed
-
-
-
+//Create custom_views object
 const custom_views = {};
 
-// We can now add view templates to our custom_views object
-
-// Custom view template for trials
+// Add custom view template for trials to custom_views object
+// for more information: https://magpie-ea.github.io/magpie-docs/01_designing_experiments/03_custom_views/
 custom_views.keypress_rotation = function(config) {
     const keypress_rotation_function = {
        name: config.name,
@@ -28,10 +12,14 @@ custom_views.keypress_rotation = function(config) {
             const question = magpieUtils.view.setter.question(
                 config.data[CT].question
             );
+			
+			// add key configurations
             const key1 = config.key1;
             const key2 = config.key2;
             const value1 = config[key1];
             const value2 = config[key2];
+			
+			// stimulus container generator for keyPress function
             const viewTemplate = `<div class="magpie-view">
                     <h1 class='magpie-view-title'>${this.title}</h1>
                     <p class='magpie-response-keypress-header'><strong>${key1}</strong> = ${value1}, <strong>${key2}</strong> = ${value2}</p>
@@ -52,12 +40,12 @@ custom_views.keypress_rotation = function(config) {
                 ).toLowerCase();
 
 
-
+				// handle response function for measuring the reaction to the pressed keys of the participants
                 if (keyPressed === key1 || keyPressed === key2) {
                     let correctness;
                     const RT = Date.now() - startingTime - 1000; // measure RT before anything else, substract fixation time from trial (1000)
 
-					// clear old timeouts and remove them from the timeout array
+					// reset the timeout array
 					  clearTimeout(window.timeout[0]);
 					  window.timeout.shift();
 					  clearTimeout(window.timeout[0]);
@@ -70,7 +58,7 @@ custom_views.keypress_rotation = function(config) {
 						$(".magpie-view-stimulus").addClass("magpie-invisible");
 						$('#feedback').text('');
 					}
-					
+					// if keyPressed is correct, show blank screen and save variable correctness as "correct"
                     else if (
                         config.data[CT].expected ===
                             config[keyPressed]
@@ -80,7 +68,7 @@ custom_views.keypress_rotation = function(config) {
                         $(".magpie-view-stimulus").addClass("magpie-invisible");
                         $('#feedback').text('');
                     }
-
+					// if keyPressed is incorrect, show feedback and save variable correctness as "incorrect"
 					else {
                         correctness = "incorrect";
                         // show feedback
@@ -89,7 +77,7 @@ custom_views.keypress_rotation = function(config) {
                     }
 
 
-
+					// add variables for statistical analysis
                     const trial_data = {
                         trial_type: config.trial_type,
 						condition: config.condition,
@@ -136,7 +124,7 @@ custom_views.keypress_rotation = function(config) {
 
                     magpie.trial_data.push(trial_data);
                     $("body").off("keydown", handleKeyPress);
-                    setTimeout(magpie.findNextView, 1500); // delay to accomodate feedback
+                    setTimeout(magpie.findNextView, 1500); // 1500ms pause between each trial as in original study
                 }
             };
 

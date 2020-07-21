@@ -1,9 +1,11 @@
 // In this file you initialize and configure your experiment using magpieInit
 
-// Random selection of
+// Participants are randomly assigned to the order of either "compatible - incompatible" or "incompatible - compatible"
 const mapping = _.sample(["compatible", "incompatible"]);
 
-// head = compatible first
+// Therefore, both groups have their own view sequence
+
+// First group: compatible first
 if (mapping == "compatible") {
 
   $("document").ready(function() {
@@ -15,15 +17,11 @@ if (mapping == "compatible") {
     };
 
     // calls magpieInit
-    // in debug mode this returns the magpie-object, which you can access in the console of your browser
-    // e.g. >> window.magpie_monitor or window.magpie_monitor.findNextView()
-    // in all other modes null will be returned
     window.magpie_monitor = magpieInit({
-        // You have to specify all views you want to use in this experiment and the order of them
+        // views sequence
         views_seq: [
 
             // Basic intro and instructions, independent of compatibility
-
             intro,
             instructions_general,
 
@@ -33,7 +31,7 @@ if (mapping == "compatible") {
             instructions_main_1,
             main_compatible_1,
 
-			      // break between trial blocks
+			// break between trial blocks
             instructions_break,
 
             // Second half with incompatible trials
@@ -46,31 +44,28 @@ if (mapping == "compatible") {
             post_test,
             thanks,
         ],
-        // Here, you can specify all information for the deployment
+        // deployment information
         deploy: {
             experimentID: "155",
             serverAppURL: "https://magpie-demo.herokuapp.com/api/submit_experiment/",
-            // Possible deployment methods are:
-            // "debug" and "directLink"
-            // As well as "MTurk", "MTurkSandbox" and "Prolific"
-            deployMethod: "directLink",
+            deployMethod: "debug",
             contact_email: "office@niklas-bub.de",
             prolificURL: "https://app.prolific.ac/submissions/complete?cc=SAMPLE1234"
         },
-        // Here, you can specify how the progress bar should look like
+        // progress bar (seen by the participant in the top right corner of the screen)
         progress_bar: {
             in: [
-                // list the view-names of the views for which you want a progress bar
+                // view-names of the views which have a progress bar
                 practice_compatible_1.name,
-				        practice_incompatible_1.name,
+				practice_incompatible_1.name,
                 practice_compatible_2.name,
-				        practice_incompatible_2.name,
-				        main_compatible_1.name,
+				practice_incompatible_2.name,
+				main_compatible_1.name,
                 main_compatible_2.name,
-				        main_incompatible_1.name,
+				main_incompatible_1.name,
                 main_incompatible_2.name
             ],
-             // Possible styles are "default", "separate" and "chunks"
+             // Style of progress bar
             style: "separate",
             width: 100
         }
@@ -79,7 +74,7 @@ if (mapping == "compatible") {
 
 }
 
-
+// Second group: incompatible first
 else {
 	$("document").ready(function() {
     // prevent scrolling when space is pressed
@@ -90,15 +85,11 @@ else {
     };
 
     // calls magpieInit
-    // in debug mode this returns the magpie-object, which you can access in the console of your browser
-    // e.g. >> window.magpie_monitor or window.magpie_monitor.findNextView()
-    // in all other modes null will be returned
     window.magpie_monitor = magpieInit({
-        // You have to specify all views you want to use in this experiment and the order of them
+        // views sequence
         views_seq: [
 
             // Basic intro and instructions, independent of compatibility
-
             intro,
             instructions_general,
 
@@ -121,31 +112,28 @@ else {
             post_test,
             thanks,
         ],
-        // Here, you can specify all information for the deployment
+        // deployment information
         deploy: {
             experimentID: "155",
             serverAppURL: "https://magpie-demo.herokuapp.com/api/submit_experiment/",
-            // Possible deployment methods are:
-            // "debug" and "directLink"
-            // As well as "MTurk", "MTurkSandbox" and "Prolific"
-            deployMethod: "directLink",
+            deployMethod: "debug",
             contact_email: "office@niklas-bub.de",
             prolificURL: "https://app.prolific.ac/submissions/complete?cc=SAMPLE1234"
         },
-        // Here, you can specify how the progress bar should look like
+        // progress bar (seen by the participant in the top right corner of the screen)
         progress_bar: {
             in: [
-                // list the view-names of the views for which you want a progress bar
+                // view-names of the views which have a progress bar
                 practice_compatible_1.name,
-				        practice_incompatible_1.name,
+				practice_incompatible_1.name,
                 practice_compatible_2.name,
-				        practice_incompatible_2.name,
-				        main_compatible_1.name,
+				practice_incompatible_2.name,
+				main_compatible_1.name,
                 main_compatible_2.name,
-				        main_incompatible_1.name,
+				main_incompatible_1.name,
                 main_incompatible_2.name
             ],
-             // Possible styles are "default", "separate" and "chunks"
+             // Style of progress bar
             style: "separate",
             width: 100
         }

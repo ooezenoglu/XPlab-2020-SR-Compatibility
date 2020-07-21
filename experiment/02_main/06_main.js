@@ -48,7 +48,7 @@ if (mapping == "compatible") {
         deploy: {
             experimentID: "155",
             serverAppURL: "https://magpie-demo.herokuapp.com/api/submit_experiment/",
-            deployMethod: "debug",
+            deployMethod: "directLink",
             contact_email: "office@niklas-bub.de",
             prolificURL: "https://app.prolific.ac/submissions/complete?cc=SAMPLE1234"
         },
@@ -116,7 +116,7 @@ else {
         deploy: {
             experimentID: "155",
             serverAppURL: "https://magpie-demo.herokuapp.com/api/submit_experiment/",
-            deployMethod: "debug",
+            deployMethod: "directLink",
             contact_email: "office@niklas-bub.de",
             prolificURL: "https://app.prolific.ac/submissions/complete?cc=SAMPLE1234"
         },

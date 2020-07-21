@@ -1,24 +1,4 @@
-// In this file you can instantiate your views
-// We here first instantiate wrapping views, then the trial views
-
-
-/** Wrapping views below
-
-* Obligatory properties
-
-    * trials: int - the number of trials this view will appear
-    * name: string
-
-*Optional properties
-    * buttonText: string - the text on the button (default: 'next')
-    * text: string - the text to be displayed in this view
-    * title: string - the title of this view
-
-    * More about the properties and functions of the wrapping views - https://magpie-ea.github.io/magpie-docs/01_designing_experiments/01_template_views/#wrapping-views
-
-*/
-
-// Every experiment should start with an intro view. Here you can welcome your participants and tell them what the experiment is about
+// Intro view to give general information about the experiment
 const intro = magpieViews.view_generator("intro", {
   trials: 1,
   name: 'intro',
@@ -26,12 +6,21 @@ const intro = magpieViews.view_generator("intro", {
   text: `Thank you for participating in this experiment!
          <br />
          <br />
-         Please make sure that you are on a <strong>laptop or desktop computer</strong>.
-         If you are <strong>not</strong>, please <strong>close this window now</strong> and open the link again if you are sitting in front of a laptop or desktop computer. `,
+         Unfortunately it is <strong>not possible</strong> to take part in this
+         experiment with a smartphone. If you are using one right now, please
+         <strong>close this window</strong> and open it again on a <strong>laptop
+         or desktop computer</strong>.
+         <br />
+         <br />
+         The data you will provide here will be kept <strong>anonymous</strong> and only shared with
+         the researchers and the supervisor. Your participation in this experiment
+         is <strong>voluntary</strong>. You may quit at <strong>any moment</strong>. This experiment will take around
+         <strong>10 to 15 minutes</strong>.
+         `,
   buttonText: 'Continue'
 });
 
-// For most tasks, you need instructions views
+// General instructions, independent of the mapping condition
 const instructions_general = magpieViews.view_generator("instructions", {
   trials: 1,
   name: 'instructions_general',
@@ -53,6 +42,7 @@ const instructions_general = magpieViews.view_generator("instructions", {
   buttonText: 'Continue'
 });
 
+// Practice instructions for the compatible-first mapping
 const instructions_practice_compatible_1 = magpieViews.view_generator("instructions", {
   trials: 1,
   name: 'instructions_practice_compatible_1',
@@ -75,6 +65,7 @@ const instructions_practice_compatible_1 = magpieViews.view_generator("instructi
   buttonText: 'go to practice trials'
 });
 
+// Practice instructions for the incompatible-first mapping
 const instructions_practice_incompatible_1 = magpieViews.view_generator("instructions", {
   trials: 1,
   name: 'instructions_practice_incompatible_1',
@@ -97,6 +88,7 @@ const instructions_practice_incompatible_1 = magpieViews.view_generator("instruc
   buttonText: 'go to practice trials'
 });
 
+// Practice instructions for the compatible-second (incompatible-first) mapping
 const instructions_practice_compatible_2 = magpieViews.view_generator("instructions", {
   trials: 1,
   name: 'instructions_practice_compatible_2',
@@ -123,6 +115,7 @@ const instructions_practice_compatible_2 = magpieViews.view_generator("instructi
   buttonText: 'go to practice trials'
 });
 
+// Practice instructions for the incompatible-second (compatible-first) mapping
 const instructions_practice_incompatible_2 = magpieViews.view_generator("instructions", {
   trials: 1,
   name: 'instructions_practice_incompatible_2',
@@ -149,7 +142,7 @@ const instructions_practice_incompatible_2 = magpieViews.view_generator("instruc
   buttonText: 'go to practice trials'
 });
 
-
+// Main instructions for the first half of main trials
 const instructions_main_1 = magpieViews.view_generator("instructions", {
   trials: 1,
   name: 'instructions_main_1',
@@ -165,6 +158,7 @@ const instructions_main_1 = magpieViews.view_generator("instructions", {
   buttonText: 'go to main trials'
 });
 
+// Main instructions for the second half of main trials
 const instructions_main_2 = magpieViews.view_generator("instructions", {
   trials: 1,
   name: 'instructions_main_2',
@@ -180,7 +174,7 @@ const instructions_main_2 = magpieViews.view_generator("instructions", {
   buttonText: 'go to main trials'
 });
 
-
+// Instruction view for indicating that an optional pause is possible
 const instructions_break = magpieViews.view_generator("instructions", {
   trials: 1,
   name: 'instructions_break',
@@ -198,12 +192,16 @@ const instructions_break = magpieViews.view_generator("instructions", {
 
 
 
-// In the post test questionnaire you can ask your participants addtional questions
+// Post test questionnaire that includes questions about the age, native languages,
+// gender, optional comments and, for this study especially important, the dominant
+// hand
 const post_test = magpieViews.view_generator("post_test", {
   trials: 1,
   name: 'post_test',
   title: 'Additional information',
-  text: 'You are almost done! Answering the following questions is optional. However, you are <strong>highly encouraged to indicate your dominant hand (highlighted question).</strong>',
+  text: `You are almost done! Answering the following questions is optional.
+  However, you are <strong>highly encouraged to indicate your dominant hand
+  (highlighted question).</strong>`,
 
   // You can change much of what appears here, e.g., to present it in a different language, as follows:
   // buttonText: 'Weiter',
@@ -212,7 +210,7 @@ const post_test = magpieViews.view_generator("post_test", {
   // gender_male: 'männlich',
   // gender_female: 'weiblich',
   // gender_other: 'divers',
-   edu_question: '<span style="background-color:#FFFF00">Dominant hand</span>', 
+   edu_question: '<span style="background-color:#FFFF00">Dominant hand</span>',
    edu_graduated_high_school: 'left',
    edu_graduated_college: 'right',
    edu_higher_degree: 'I am able to use both hands equally well',
@@ -221,7 +219,7 @@ const post_test = magpieViews.view_generator("post_test", {
   // comments_question: 'Weitere Kommentare'
 });
 
-// The 'thanks' view is crucial; never delete it; it submits the results!
+// thanks view and submission of the results
 const thanks = magpieViews.view_generator("thanks", {
   trials: 1,
   name: 'thanks',
@@ -229,30 +227,8 @@ const thanks = magpieViews.view_generator("thanks", {
   prolificConfirmText: 'Press the button'
 });
 
-/** trial (magpie's Trial Type Views) below
 
-* Obligatory properties
-
-    - trials: int - the number of trials this view will appear
-    - name: string - the name of the view type as it shall be known to _magpie (e.g. for use with a progress bar)
-            and the name of the trial as you want it to appear in the submitted data
-    - data: array - an array of trial objects
-
-* Optional properties
-
-    - pause: number (in ms) - blank screen before the fixation point or stimulus show
-    - fix_duration: number (in ms) - blank screen with fixation point in the middle
-    - stim_duration: number (in ms) - for how long to have the stimulus on the screen
-      More about trial life cycle - https://magpie-ea.github.io/magpie-docs/01_designing_experiments/04_lifecycles_hooks/
-
-    - hook: object - option to hook and add custom functions to the view
-      More about hooks - https://magpie-ea.github.io/magpie-docs/01_designing_experiments/04_lifecycles_hooks/
-
-* All about the properties of trial views
-* https://magpie-ea.github.io/magpie-docs/01_designing_experiments/01_template_views/#trial-views
-*/
-
-// Practice function for the compatible trials
+// Practice function for the compatible-first mapping trials (10 trials)
 const practice_compatible_1 = custom_views.keypress_rotation({
   trials: 10,
   name: 'practice_compatible_1',
@@ -272,7 +248,8 @@ const practice_compatible_1 = custom_views.keypress_rotation({
   }
 });
 
-// Practice function for the compatible trials
+// Practice function for the compatible-second (incompatible-first) mapping
+// trials (20 trials)
 const practice_compatible_2 = custom_views.keypress_rotation({
   trials: 20,
   name: 'practice_compatible_2',
@@ -292,7 +269,7 @@ const practice_compatible_2 = custom_views.keypress_rotation({
   }
 });
 
-// Practice function for the incompatible trials
+// Practice function for the incompatible-first mapping trials (10 trials)
 const practice_incompatible_1 = custom_views.keypress_rotation({
   trials: 10,
   name: 'practice_incompatible_1',
@@ -312,7 +289,8 @@ const practice_incompatible_1 = custom_views.keypress_rotation({
   }
 });
 
-// Practice function for the incompatible trials
+// Practice function for the incompatible-second (compatible-first) mapping
+// trials (20 trials)
 const practice_incompatible_2 = custom_views.keypress_rotation({
   trials: 20,
   name: 'practice_incompatible_2',
@@ -332,7 +310,7 @@ const practice_incompatible_2 = custom_views.keypress_rotation({
   }
 });
 
-// Main function for the compatible trials
+// Main function for the compatible-first mapping trials (60 trials)
 const main_compatible_1 = custom_views.keypress_rotation({
   trials: 60,
   name: 'main_compatible_1',
@@ -352,7 +330,8 @@ const main_compatible_1 = custom_views.keypress_rotation({
   }
 });
 
-// Main function for the compatible trials
+// Main function for the compatible-second (incompatible-first) mapping
+// trials (60 trials)
 const main_compatible_2 = custom_views.keypress_rotation({
   trials: 60,
   name: 'main_compatible_2',
@@ -372,7 +351,7 @@ const main_compatible_2 = custom_views.keypress_rotation({
   }
 });
 
-// Main function for the incompatible trials
+// Main function for the incompatible-first mapping trials (60 trials)
 const main_incompatible_1 = custom_views.keypress_rotation({
   trials: 60,
   name: 'main_incompatible_1',
@@ -392,7 +371,8 @@ const main_incompatible_1 = custom_views.keypress_rotation({
   }
 });
 
-// Main function for the incompatible trials
+// Main function for the incompatible-second (compatible-first) mapping
+// trials (60 trials)
 const main_incompatible_2 = custom_views.keypress_rotation({
   trials: 60,
   name: 'main_incompatible_2',
@@ -411,10 +391,3 @@ const main_incompatible_2 = custom_views.keypress_rotation({
     after_response_enabled: count_time
   }
 });
-
-
-
-
-// There are many more templates available:
-// forced_choice, slider_rating, dropdown_choice, testbox_input, rating_scale, image_selection, sentence_choice,
-// key_press, self_paced_reading and self_paced_reading_rating_scale

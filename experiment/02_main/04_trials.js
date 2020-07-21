@@ -1,5 +1,3 @@
-// In this file you can specify the trial data for your experiment
-
 //Error feedback if participants exceeds the time for responding, and hides stimulus
 const count_time = function (data, next) {
   if (typeof window.timeout === 'undefined') {
@@ -13,7 +11,7 @@ const count_time = function (data, next) {
   next();
 };
 
-
+// trial data for the first trial sequence (10 trials)
 const trial_data_10 = {
 	key_press: [
 		{
@@ -59,7 +57,7 @@ const trial_data_10 = {
 	]
 }
 
-
+//trial data for the second trial sequence (20 trials)
 const trial_data_20 = {
 	key_press: [
 		{
@@ -145,7 +143,7 @@ const trial_data_20 = {
 	]
 }
 
-
+// trial data for the main trial sequences (60 trials)
 const trial_data_60 = {
 	key_press: [
 		{

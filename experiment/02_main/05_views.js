@@ -6,15 +6,14 @@ const intro = magpieViews.view_generator("intro", {
   text: `Thank you for participating in this experiment!
          <br />
          <br />
-         Unfortunately it is <strong>not possible</strong> to take part in this
-         experiment with a smartphone. If you are using one right now, please
+         Unfortunately, it is <strong>not possible</strong> to take part in this
+         experiment with a smartphone or tablet. If you are using one of them right now, please
          <strong>close this window</strong> and open it again on a <strong>laptop
          or desktop computer</strong>.
          <br />
          <br />
-         The data you will provide here will be kept <strong>anonymous</strong> and only shared with
-         the researchers and the supervisor. Your participation in this experiment
-         is <strong>voluntary</strong>. You may quit at <strong>any moment</strong>. This experiment will take around
+         The data you will provide here will be kept <strong>anonymous</strong>. Your participation in this experiment
+         is <strong>voluntary</strong>, and you may quit at <strong>any moment</strong>. This experiment will take around
          <strong>10 to 15 minutes</strong>.
          `,
   buttonText: 'Continue'

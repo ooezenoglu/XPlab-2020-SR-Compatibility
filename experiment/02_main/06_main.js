@@ -31,7 +31,7 @@ if (mapping == "compatible") {
             instructions_main_1,
             main_compatible_1,
 
-			// break between trial blocks
+			      // break between trial blocks
             instructions_break,
 
             // Second half with incompatible trials
@@ -57,12 +57,12 @@ if (mapping == "compatible") {
             in: [
                 // view-names of the views which have a progress bar
                 practice_compatible_1.name,
-				practice_incompatible_1.name,
+				        practice_incompatible_1.name,
                 practice_compatible_2.name,
-				practice_incompatible_2.name,
-				main_compatible_1.name,
+				        practice_incompatible_2.name,
+				        main_compatible_1.name,
                 main_compatible_2.name,
-				main_incompatible_1.name,
+				        main_incompatible_1.name,
                 main_incompatible_2.name
             ],
              // Style of progress bar
@@ -99,10 +99,10 @@ else {
             instructions_main_1,
             main_incompatible_1,
 
-			// break between trial blocks
+			      // break between trial blocks
             instructions_break,
 
-		    // Second half with compatible trials
+		        // Second half with compatible trials
             instructions_practice_compatible_2,
             practice_compatible_2,
             instructions_main_2,
@@ -125,12 +125,12 @@ else {
             in: [
                 // view-names of the views which have a progress bar
                 practice_compatible_1.name,
-				practice_incompatible_1.name,
+				        practice_incompatible_1.name,
                 practice_compatible_2.name,
-				practice_incompatible_2.name,
-				main_compatible_1.name,
+				        practice_incompatible_2.name,
+				        main_compatible_1.name,
                 main_compatible_2.name,
-				main_incompatible_1.name,
+				        main_incompatible_1.name,
                 main_incompatible_2.name
             ],
              // Style of progress bar

@@ -31,11 +31,13 @@ The order of mapping conditions (compatible - incompatible vs. incompatible - co
 
 Please refer to the [experimental design document](https://github.com/ooezenoglu/XPlab-2020-SR-Compatibility/blob/master/writing/01-experimental-design-SR-Compatibility-Task.pdf) for a more extensive description.
 
+This replication study was [preregistered](https://github.com/ooezenoglu/XPlab-2020-SR-Compatibility/blob/master/writing/02-preregistration-SR-Compatibility-Task.pdf).
+
 ## _magpie
 
 This experiment was built using [_magpie](https://magpie-ea.github.io/magpie-site/index.html).
 
 ## Running the experiment
 
-1. Online Link: TBA
+1. Online Link: [here](https://xplab-2020-final-project.netlify.app/)
 2. Offline: Clone the repository, run `npm install` and open `index.html`.

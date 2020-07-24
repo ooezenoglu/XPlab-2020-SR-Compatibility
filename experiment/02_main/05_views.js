@@ -7,7 +7,7 @@ const intro = magpieViews.view_generator("intro", {
          <br />
          <br />
          Unfortunately, it is <strong>not possible</strong> to take part in this
-         experiment with a smartphone or tablet. If you are using one of them right now, please
+         experiment with a smartphone or tablet. If you are using one of those devices right now, please
          <strong>close this window</strong> and open it again on a <strong>laptop
          or desktop computer</strong>.
          <br />

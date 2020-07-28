@@ -3,7 +3,7 @@ title: "S-R Compatibility Task - Exploratory Analysis"
 author: 
     name: Milan Ewert, Tim Bax, Niklas Bub, Özge Özenoglu
     email: mewert@uos.de, tbax@uos.de, nbub@uos.de, ooezenoglu@uos.de
-date: "July 14, 2020"
+date: "July 23, 2020"
 output: 
   html_document:
     toc: true
@@ -137,10 +137,10 @@ handedness_table <- d %>%
   summarize()
 
 handedness_counts <- tibble(
-  handedness = c("right", "left", "both"), 
+  handedness = c("right", "left", "I am able to use both hands equally well"), 
   counts = c(sum(handedness_table$handedness=="right"), 
              sum(handedness_table$handedness=="left"), 
-             sum(handedness_table$handedness=="both")))
+             sum(handedness_table$handedness=="I am able to use both hands equally well")))
 
 handedness_counts
 ```
@@ -149,7 +149,7 @@ handedness_counts
 ggplot(d_agg_expl, aes(x = correct_response, y = mean_RT, color = condition)) + 
   geom_point(size = 2) +
   geom_line(aes(group = condition)) +
-  facet_wrap(.~handedness, labeller = labeller(handedness = c("left" = "left-handed", "right" = "right-handed", "both" = "both-handed"))) +
+  facet_wrap(.~handedness, labeller = labeller(handedness = c("left" = "left-handed", "right" = "right-handed", "I am able to use both hands equally well" = "both-handed"))) +
   xlab("\ncorrect response location") +
   ylab("reaction time in ms\n") +
   theme_classic() +
@@ -185,43 +185,43 @@ prior_summary(model_RE_expl)
 
 ## Hypothesis Testing
 
-> In the compatible condition, left-handers respond faster to left reponses than to right responses.
+> Do right-handers respond faster in the compatible mapping condition than left-handers?
 
 ```{r eval=FALSE}
 compare_groups(
   model = model_RE_expl,
-  higher = list(condition = "compatible", correct_response = "left", handedness = "left"),
-  lower = list(condition = "compatible", Correct_response = "right", handedness = "left")
+  higher = list(condition = "compatible", handedness = "left"),
+  lower = list(condition = "compatible", handedness = "right")
 )
 ```
 
-> In the incompatible condition, left-handers respond faster to right reponses than to left responses.
+> Do left-handers respond faster in the incompatible mapping condition than right-handers?
 
 ```{r eval=FALSE}
 
 compare_groups(
   model = model_RE_expl,
-  higher = list(condition = "incompatible", correct_response = "right", handedness = "left"),
-  lower = list(condition = "incompatible", correct_response = "left", handedness = "left")
+  higher = list(condition = "incompatible", handedness = "right"),
+  lower = list(condition = "incompatible", handedness = "left")
 )
 ```
 
-> In the compatible condition, right-handers respond faster to right responses than to left responses.
+> Do left-handers respond faster to left-responses than to right-responses?
 
 ```{r eval=FALSE}
 compare_groups(
   model = model_RE_expl,
-  higher = list(condition = "compatible", correct_response = "right", handedness = "right"),
-  lower = list(condition = "compatible", correct_response = "left", handedness = "right")
+  higher = list(correct_response = "right", handedness = "left"),
+  lower = list(correct_response = "left", handedness = "left")
 )
 ```
 
-> In the incompatible condition, right-handers respond faster to left responses than to right responses.
+> Do right-handers respond faster to right-responses than to left-responses?
 
 ```{r eval=FALSE}
 compare_groups(
   model = model_RE_expl,
-  higher = list(condition = "incompatible", correct_response = "left", handedness = "right"),
-  lower = list(condition = "incompatible", correct_response = "right", handedness = "right")
+  higher = list(correct_response = "left", handedness = "right"),
+  lower = list(correct_response = "right", handedness = "right")
 )
 ```

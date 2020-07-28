@@ -3,7 +3,7 @@ title: "S-R Compatibility Task - Confirmatory Analysis"
 author: 
     name: Milan Ewert, Tim Bax, Niklas Bub, Özge Özenoglu
     email: mewert@uos.de, tbax@uos.de, nbub@uos.de, ooezenoglu@uos.de
-date: "July 14, 2020"
+date: "July 23, 2020"
 output: 
   html_document:
     toc: true
@@ -336,7 +336,6 @@ posteriors_agg %>%
 > Response times are faster in the compatible mapping condition than in the incompatible mapping condition.
 
 ```{r}
-
 compare_groups(
   model = model_RE,
   higher = list("condition" = "incompatible"),
@@ -346,10 +345,9 @@ compare_groups(
 
 ## Hypothesis 2
 
-> The compatible S-R mapping yields faster reaction times for right responses than for left responses.
+> The compatible S-R mapping yields faster reaction times for right-responses than for left-responses.
 
 ```{r}
-
 compare_groups(
   model = model_RE,
   higher = list(condition = "compatible", correct_response = "left"),
@@ -359,10 +357,9 @@ compare_groups(
 
 ## Hypothesis 3
 
-> The incompatible S-R mapping yields slower reaction times for right responses than for left responses.
+> The incompatible S-R mapping yields slower reaction times for right-responses than for left-responses.
 
 ```{r}
-
 compare_groups(
   model = model_RE,
   higher = list(condition = "incompatible", correct_response = "right"),

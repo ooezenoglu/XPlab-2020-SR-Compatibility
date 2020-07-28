@@ -3,7 +3,7 @@ title: "S-R Compatibility Task - Confirmatory Analysis"
 author: 
     name: Milan Ewert, Tim Bax, Niklas Bub, Özge Özenoglu
     email: mewert@uos.de, tbax@uos.de, nbub@uos.de, ooezenoglu@uos.de
-date: "July 23, 2020"
+date: "July 28, 2020"
 output: 
   html_document:
     toc: true
@@ -39,9 +39,33 @@ scale_fill_discrete <- function(...) {
 ## Load raw data 
 
 ```{r}
-raw_data <- read.csv('')
+raw_data <- read.csv('https://raw.githubusercontent.com/ooezenoglu/XPlab-2020-SR-Compatibility/master/data/02_main/01-raw-data-main.csv')
 
 glimpse(raw_data)
+```
+
+# Optional participant information
+
+```{r}
+# check summary statistics regarding the age
+raw_data %>% 
+  pull(age) %>% 
+  summary()
+```
+
+```{r message=FALSE, warning=FALSE}
+# check counts within the 'gender' variable
+raw_data %>%
+  group_by(gender) %>% 
+  summarise(count = n()/150) %>% 
+  mutate(gender = c("no answer", "female", "male"))
+```
+
+```{r}
+# check comments of participants
+raw_data %>% 
+  pull(comments) %>% 
+  unique()
 ```
 
 # Data Wrangling
@@ -181,7 +205,7 @@ model_RE <- brm(
   formula = RT ~ condition * correct_response + # fixed effects
     (condition * correct_response||submission_id), # random effects
   data = d,
-  iter = 4000,
+  iter = 3000,
   control = list(adapt_delta = 0.99, max_treedepth = 15),
   seed = 525
 )

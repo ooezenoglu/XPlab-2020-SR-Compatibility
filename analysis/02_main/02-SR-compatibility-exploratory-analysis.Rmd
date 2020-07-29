@@ -3,7 +3,7 @@ title: "S-R Compatibility Task - Exploratory Analysis"
 author: 
     name: Milan Ewert, Tim Bax, Niklas Bub, Özge Özenoglu
     email: mewert@uos.de, tbax@uos.de, nbub@uos.de, ooezenoglu@uos.de
-date: "July 23, 2020"
+date: "July 28, 2020"
 output: 
   html_document:
     toc: true
@@ -41,7 +41,7 @@ scale_fill_discrete <- function(...) {
 ## Load raw data 
 
 ```{r}
-raw_data <- read.csv('.csv')
+raw_data <- read.csv('https://raw.githubusercontent.com/ooezenoglu/XPlab-2020-SR-Compatibility/master/data/02_main/01-raw-data-main.csv')
 
 glimpse(raw_data)
 ```
@@ -101,6 +101,14 @@ mutate(
 )
 ```
 
+We rename the "I am able to use both hands equally well"-value to "both" for `handedness`
+
+```{r}
+d <- d %>% 
+  mutate(handedness = ifelse(handedness == "right", "right", 
+                              ifelse(handedness == "left", "left", "both")))
+```
+
 ```{r}
 # peek at the first six rows
 head(d)
@@ -108,7 +116,7 @@ head(d)
 
 # Exploratory Analysis
 
-```{r message=FALSE}
+```{r message=FALSE, warning=FALSE}
 d_agg_expl <- d %>% 
   # look at each level of 'condition', 'correct_response' and 'handedness'
   group_by(condition, correct_response, handedness) %>% 
@@ -119,7 +127,7 @@ d_agg_expl <- d %>%
 d_agg_expl
 ```
 
-```{r message=FALSE}
+```{r message=FALSE, warning=FALSE}
 d_agg_participant_expl <- d %>% 
   # look at each level of 'condition', 'correct_response' and 'handedness' for each participant
   group_by(condition, correct_response, submission_id, handedness) %>% 
@@ -130,17 +138,19 @@ d_agg_participant_expl <- d %>%
 head(d_agg_participant_expl)
 ```
 
-```{r message=FALSE}
+```{r message=FALSE, warning=FALSE}
 handedness_table <- d %>% 
   select(submission_id, handedness) %>% 
   group_by(submission_id, handedness) %>% 
   summarize()
 
+# check counts within the 'handedness' variable
 handedness_counts <- tibble(
-  handedness = c("right", "left", "I am able to use both hands equally well"), 
+  handedness = c("right", "left", "both", "no answer"), 
   counts = c(sum(handedness_table$handedness=="right"), 
              sum(handedness_table$handedness=="left"), 
-             sum(handedness_table$handedness=="I am able to use both hands equally well")))
+             sum(handedness_table$handedness=="both"),
+             sum(handedness_table$handedness==""))) 
 
 handedness_counts
 ```
@@ -149,7 +159,8 @@ handedness_counts
 ggplot(d_agg_expl, aes(x = correct_response, y = mean_RT, color = condition)) + 
   geom_point(size = 2) +
   geom_line(aes(group = condition)) +
-  facet_wrap(.~handedness, labeller = labeller(handedness = c("left" = "left-handed", "right" = "right-handed", "I am able to use both hands equally well" = "both-handed"))) +
+  facet_wrap(.~handedness, 
+             labeller = labeller(handedness = c("left" = "left-handed", "right" = "right-handed", "both" = "both-handed"))) +
   xlab("\ncorrect response location") +
   ylab("reaction time in ms\n") +
   theme_classic() +
@@ -158,38 +169,38 @@ ggplot(d_agg_expl, aes(x = correct_response, y = mean_RT, color = condition)) +
 
 ## Model Specification
 
-In case that there are left-handed participants, we fit a Bayesian hierarchical linear model with variate `RT` (reaction time), covariates `condition`, `correct_response`, `handedness`, as well as their three-way interaction. Furthermore, we specify by-participant random intercepts. We use the default (flat) priors of the `brms` package for the effect coefficients. 
+In case that there are left-handed participants, we fit a Bayesian hierarchical linear model with variate `RT` (reaction time), covariates `condition`, `correct_response`, `handedness`, as well as their three-way interaction. Furthermore, we specify by-participant random effects for the interaction of `condition` and `correct_response`. We use the default (flat) priors of the `brms` package for the effect coefficients. 
 
 ```{r warnings = FALSE, messages = FALSE, results = 'hide'}
 model_RE <- brm(
   formula = RT ~ condition * correct_response * handedness + # fixed effects
     (condition * correct_response||submission_id), # random effects
   data = d,
-  iter = 4000,
-  control = list(adapt_delta = 0.99, max_treedepth = 15),
+  iter = 3000,
+  control = list(adapt_delta = 0.95, max_treedepth = 15),
   seed = 525
 )
 ```
 
 ##  Posterior estimates
 
-```{r, eval=FALSE}
+```{r}
 # print model output
-model_RE_expl
+model_RE
 ```
 
-```{r eval=FALSE}
+```{r}
 # take a look at the chosen priors by brms
-prior_summary(model_RE_expl)
+prior_summary(model_RE)
 ```
 
 ## Hypothesis Testing
 
 > Do right-handers respond faster in the compatible mapping condition than left-handers?
 
-```{r eval=FALSE}
+```{r}
 compare_groups(
-  model = model_RE_expl,
+  model = model_RE,
   higher = list(condition = "compatible", handedness = "left"),
   lower = list(condition = "compatible", handedness = "right")
 )
@@ -197,10 +208,10 @@ compare_groups(
 
 > Do left-handers respond faster in the incompatible mapping condition than right-handers?
 
-```{r eval=FALSE}
+```{r}
 
 compare_groups(
-  model = model_RE_expl,
+  model = model_RE,
   higher = list(condition = "incompatible", handedness = "right"),
   lower = list(condition = "incompatible", handedness = "left")
 )
@@ -208,9 +219,9 @@ compare_groups(
 
 > Do left-handers respond faster to left-responses than to right-responses?
 
-```{r eval=FALSE}
+```{r}
 compare_groups(
-  model = model_RE_expl,
+  model = model_RE,
   higher = list(correct_response = "right", handedness = "left"),
   lower = list(correct_response = "left", handedness = "left")
 )
@@ -218,9 +229,9 @@ compare_groups(
 
 > Do right-handers respond faster to right-responses than to left-responses?
 
-```{r eval=FALSE}
+```{r}
 compare_groups(
-  model = model_RE_expl,
+  model = model_RE,
   higher = list(correct_response = "left", handedness = "right"),
   lower = list(correct_response = "right", handedness = "right")
 )

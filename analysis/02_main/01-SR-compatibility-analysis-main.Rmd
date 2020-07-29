@@ -327,18 +327,28 @@ derived_posteriors <- model_RE %>%
           condition = ifelse(parameter == "Compatible_right" | parameter == "Compatible_left",
                         "compatible", "incompatible")) 
 
-# summarize posterior means and 95% Credible Intervals for each combination of condition and correct_response
+
+# summarize posterior means and 95% Credible Intervals for each condition
 posteriors_agg <- derived_posteriors %>% 
-  group_by(correct_response, condition) %>% 
+  group_by(condition) %>% 
   summarise(`|95%` = HDInterval::hdi(posterior, credMass = 0.95)[1],
             mean_posterior = mean(posterior),
             `95%|` = HDInterval::hdi(posterior, credMass = 0.95)[2])
 
 posteriors_agg
+
+# summarize posterior means and 95% Credible Intervals for each combination of condition and correct_response
+posteriors_agg2 <- derived_posteriors %>% 
+  group_by(correct_response, condition) %>% 
+  summarise(`|95%` = HDInterval::hdi(posterior, credMass = 0.95)[1],
+            mean_posterior = mean(posterior),
+            `95%|` = HDInterval::hdi(posterior, credMass = 0.95)[2])
+
+posteriors_agg2
 ```
 
 ```{r}
-posteriors_agg %>% 
+posteriors_agg2 %>% 
   ggplot(aes(x = correct_response, y = mean_posterior, color = condition)) +
   facet_wrap(.~condition) +
   # plot the mean posterior estimates as a function of 'correct_response' and 'condition'

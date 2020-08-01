@@ -6,7 +6,7 @@ Wühr, P., & Seegelke, C. (2018). Compatibility between Physical Stimulus Size a
 
 We created the stimuli by ourselves. They are available [here](https://github.com/ooezenoglu/XPlab-2020-SR-Compatibility/tree/master/experiment/02_main/materials).
 
-Final Report: https://github.com/ooezenoglu/XPlab-2020-SR-Compatibility/blob/master/writing/03-final-report-compatibility-task.pdf
+Final Report: [here](https://github.com/ooezenoglu/XPlab-2020-SR-Compatibility/blob/master/writing/03-final-report-SR-Compatibility-Task.pdf)
 
 ## Experiment
 
